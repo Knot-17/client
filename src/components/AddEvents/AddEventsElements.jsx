@@ -150,6 +150,7 @@ export const Input = styled.input`
     appearance: none;
     outline: none;
     width: 100%;
+    height: 2rem;
     color: rgb(34, 32, 32);
 `
 

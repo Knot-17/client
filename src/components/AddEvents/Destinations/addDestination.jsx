@@ -15,31 +15,43 @@ const AddDestinations = () => {
                     <Form>
                       <FormBox>
                           <InputContainerLeft>
-                            <Label> username </Label>
+                            <Label> Name of the Destination </Label>
                             <InputBox>
                               <Input  />
                             </InputBox>
                           </InputContainerLeft>
                           <InputContainerRight>
-                            <Label> username </Label>
+                            <Label> Category </Label>
                             <InputBox>
                               <Input  />
                             </InputBox>
                           </InputContainerRight>
                           <InputContainerLeft>
-                            <Label> username </Label>
+                            <Label> Max-Guest </Label>
                             <InputBox>
                               <Input  />
                             </InputBox>
                           </InputContainerLeft>
                           <InputContainerRight>
-                            <Label> username </Label>
+                            <Label> Amount </Label>
                             <InputBox>
                               <Input  />
                             </InputBox>
                           </InputContainerRight>
                           <InputContainerLeft>
-                            <Label> username </Label>
+                            <Label> Location </Label>
+                            <InputBox>
+                              <Input  />
+                            </InputBox>
+                          </InputContainerLeft>
+                          <InputContainerRight>
+                            <Label> Street </Label>
+                            <InputBox>
+                              <Input  />
+                            </InputBox>
+                          </InputContainerRight>
+                          <InputContainerLeft>
+                            <Label> District </Label>
                             <InputBox>
                               <Input  />
                             </InputBox>
