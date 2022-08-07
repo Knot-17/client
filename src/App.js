@@ -6,7 +6,7 @@ import SignUpPage from './screens/signup';
 import SignInPage from './screens/signin';
 import Filter from './screens/filter';
 import AddDestinations from './components/AddEvents/Destinations/addDestination';
-import Form from './components/Form';
+import Form from './screens/Form';
 
 function App() {
   return (
