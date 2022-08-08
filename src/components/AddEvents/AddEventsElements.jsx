@@ -1,18 +1,33 @@
 import styled from 'styled-components';
 
 
-export const PrimaryContainer = styled.div`
+export const MainContainer = styled.div`
   display:flex;
   background: #fff;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100%;
+  
+`
+
+export const PrimaryContainer = styled.div`
+  display:flex;
+  background: #fff;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 70%;
+
+  @media screen and (max-width:880px){     
+    width: 100%;
+    }
+
   `
 
 export const SecondaryContainer =styled.div`
     display: grid;
-    grid-template-columns: 38% 62%;
+    grid-template-columns: 50% 50%;
     background: #fff;
     padding: 5px;
     height: 95%;
@@ -32,7 +47,7 @@ export const SecondaryContainer =styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        overflow: scroll;
+        overflow:scroll; 
     }
 `
 
@@ -58,6 +73,7 @@ export const ImageBox = styled.img`
     @media screen and (max-width:720px){
         height: 200px;
         width: 200px;
+        margin-top:300px;
     }
     @media screen and (max-width:880px){
         height: auto;
@@ -93,33 +109,19 @@ export const Form = styled.form`
 `
 
 export const FormBox = styled.div`
-    display: grid;
-    grid-template-columns: 50% 50%;
+    display: flex;
+    flex-direction: column;
 `
 
 export const InputContainerLeft = styled.div`
     display:flex;
     flex-direction: column;
     justify-content: center;
-    width: 95%;
-    position:relative;
-    margin-top:1rem; 
-    margin-left: 2px;
-    margin-right: 2px;
-    flex: 1;
+    margin-block-end: 1rem;
+    
 `
 
-export const InputContainerRight = styled.div`
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 95%;
-    position:relative;
-    margin-top:1rem;
-    margin-left: 2px;
-    margin-right: 2px;
-    flex: 1;
-`
+
 
 export const Label = styled.div`
     font-weight: bold;
@@ -154,3 +156,56 @@ export const Input = styled.input`
     color: rgb(34, 32, 32);
 `
 
+export const InputContainerFull = styled.div`
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    position:relative;
+    flex: 1;
+`
+
+export const InputContainerDouble = styled.div`
+    display:grid;
+    grid-template-columns: 47% 47%;
+    justify-content: space-between;
+    position:relative;
+    flex: 1;
+`
+
+export const InputContainerSingle = styled.div`
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 47%;
+    position:relative;
+    flex: 1;
+`
+
+export const ButtonContainer = styled.div`
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    position:relative;
+    margin-top: 1.5rem;
+`
+
+export const Button = styled.button`
+    display:flex;
+    justify-content: center;
+    width: 47%;
+    position:relative;
+    align-items: center;
+    background-color: #01bf71 ;
+    border: 1px solid;
+    font-weight: 700;
+    height: 40px;
+    color: #fff;
+    border-radius: 8px;
+
+    :hover{
+        opacity: 0.8;
+        transition:all 0.9s ease-in-out;
+    }
+`
