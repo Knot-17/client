@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
 
 
-import Step01 from './steps/Step01';
-import Step02 from './steps/Step02';
-import Step03 from './steps/Step03';
-import Step04 from './steps/Step04';
-import Step05 from './steps/Step05';
-import Step06 from './steps/Step06';
-import Step07 from './steps/Step07';
+import Step01 from '../components/steps/Step01';
+import Step02 from '../components/steps/Step02';
+import Step03 from '../components/steps/Step03';
+import Step04 from '../components/steps/Step04';
+import Step05 from '../components/steps/Step05';
+import Step06 from '../components/steps/Step06';
+import Step07 from '../components/steps/Step07';
 
-import  st01 from './images/st01.svg';
-import  st02 from './images/st02.svg';
-import  st03 from './images/st03.svg';
-import  st04 from './images/st04.svg';
-import  st05 from './images/st05.svg';
-import  st07 from './images/st07.svg'; 
+import  st01 from '../images/st01.svg';
+import  st02 from '../images/st02.svg';
+import  st03 from '../images/st03.svg';
+import  st04 from '../images/st04.svg';
+import  st05 from '../images/st05.svg';
+import  st07 from '../images/st07.svg'; 
 
 function Form () {
 

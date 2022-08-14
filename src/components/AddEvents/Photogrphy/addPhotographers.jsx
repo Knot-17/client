@@ -1,8 +1,19 @@
-import React from 'react'
-import { FormBox, FormContainer, ImageBox, ImageContainer, Input, InputBox, InputContainerLeft,  Label, PrimaryContainer, SecondaryContainer, TitleContainer ,Form, MainContainer, InputContainerFull, InputContainerSingle, InputContainerDouble, ButtonContainer, Button } from '../AddEventsElements'
+import React ,{useState} from 'react'
+import { FormBox, FormContainer, ImageBox, ImageContainer, Input, InputBox, InputContainerLeft,  Label, PrimaryContainer, SecondaryContainer, TitleContainer ,Form, MainContainer, InputContainerFull, InputContainerSingle, InputContainerDouble, ButtonContainer, Button, TextArea } from '../AddEventsElements'
 import Image from './../../../images/Personal site.gif'
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+// import { yupResolver } from "@hookform/resolvers";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
 
 const AddPhotographers = () => {
+  const  [hasInstagram, setHasInstagram] = useState(false);
+  const handleClickInstagram = () => setHasInstagram(!hasInstagram) 
+  const  [hasFacebook, setHasFacebook] = useState(false);
+  const handleClickFacebook = () => setHasFacebook(!hasFacebook)
+
+
   return (
     <>
       <MainContainer>
@@ -17,20 +28,21 @@ const AddPhotographers = () => {
                       <FormBox>
                          <InputContainerFull>
                             <InputContainerLeft>
-                              <Label> Name of the Destination </Label>
+                              <Label> Name of the Studio </Label>
                               <InputBox>
                                 <Input  />
                               </InputBox>
                             </InputContainerLeft>
                           </InputContainerFull>
-                          <InputContainerSingle>
+                          <InputContainerFull>
                             <InputContainerLeft>
-                              <Label> Category </Label>
+                              <Label> Description </Label>
                               <InputBox>
-                                <Input  />
+                                <TextArea 
+                                  rows={4}/>
                               </InputBox>
                             </InputContainerLeft>
-                          </InputContainerSingle>
+                          </InputContainerFull>
                           <InputContainerFull>
                             <InputContainerLeft>
                               <Label>Website URL</Label>
@@ -38,6 +50,43 @@ const AddPhotographers = () => {
                                 <Input  />
                               </InputBox>
                             </InputContainerLeft>
+                          </InputContainerFull>
+                          <InputContainerFull>
+                            
+                              <Label>Social Media</Label>
+                              
+                              <FormControlLabel
+                                    control={
+                                      <Checkbox onClick={handleClickInstagram} checked={hasInstagram} color="primary"  name="hasPhone" />
+                                    }
+                                    label="Instagram Page"
+                                  />
+                                   {hasInstagram && (
+                                    <InputContainerLeft>
+                                      <Label>Instagram URL</Label>
+                                      <InputBox>
+                                        <Input/>
+                                      </InputBox>
+                                    </InputContainerLeft>
+                                    
+                                    )}
+
+<FormControlLabel
+                                    control={
+                                      <Checkbox onClick={handleClickFacebook} checked={hasFacebook} color="primary"  name="hasPhone" />
+                                    }
+                                    label="Facebook Page"
+                                  />
+                                   {hasFacebook && (
+                                    <InputContainerLeft>
+                                      <Label>Facebook URL</Label>
+                                      <InputBox>
+                                        <Input/>
+                                      </InputBox>
+                                    </InputContainerLeft>
+                                    
+                                    )}
+                                    
                           </InputContainerFull>
                           <InputContainerDouble>
                             <InputContainerLeft>
@@ -61,21 +110,7 @@ const AddPhotographers = () => {
                               </InputBox>
                             </InputContainerLeft>
                           </InputContainerSingle>
-                          <InputContainerDouble>
-                            <InputContainerLeft>
-                              <Label> Guest Count </Label>
-                              <InputBox>
-                                <Input  />
-                              </InputBox>
-                            </InputContainerLeft>
-                            <InputContainerLeft>
-                              <Label> Amount </Label>
-                              <InputBox>
-                                <Input  />
-                              </InputBox>
-                            </InputContainerLeft>
-                          </InputContainerDouble>
-                          <Label> Upload Destinations </Label>
+                          <Label> Upload Samples </Label>
                           <InputContainerDouble>
                             <InputContainerLeft>
                               <InputBox>
