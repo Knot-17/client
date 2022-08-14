@@ -41,13 +41,14 @@ export const SecondaryContainer =styled.div`
     border-left-color: #01bf71;
     border-top: solid 2px;
     border-top-color: #01bf71;
+    overflow: auto;
 
     @media screen and (max-width:720px){     
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        overflow:scroll; 
+    
     }
 `
 
@@ -73,7 +74,7 @@ export const ImageBox = styled.img`
     @media screen and (max-width:720px){
         height: 200px;
         width: 200px;
-        margin-top:300px;
+        margin-top:160%;
     }
     @media screen and (max-width:880px){
         height: auto;
@@ -89,6 +90,12 @@ export const ImageBox = styled.img`
 export const FormContainer = styled.div`
     display:flex;
     flex-direction: column; 
+    margin-bottom: 15px;
+    margin-top: 15px;
+
+    @media screen and (max-width:480px){
+        margin-top:75%;
+    }
 `
 
 export const TitleContainer = styled.h1`
@@ -153,6 +160,17 @@ export const Input = styled.input`
     outline: none;
     width: 100%;
     height: 2rem;
+    color: rgb(34, 32, 32);
+`
+
+export const TextArea =styled.textarea`
+    padding: 1px;
+    padding-right: 2px;
+    padding-left: 2px;
+    appearance: none;
+    outline: none;
+    width: 100%;
+   
     color: rgb(34, 32, 32);
 `
 
