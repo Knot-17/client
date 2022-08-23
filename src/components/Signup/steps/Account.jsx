@@ -1,8 +1,7 @@
-  import React from 'react';
-  import { useContext } from 'react';
+  import React, {useContext } from 'react';
   import Image from './../../../images/Account.gif';
   import styled from 'styled-components';
-import { useStepperContext } from '../context/StepperContext';
+  import { StepperContext } from '../context/StepperContext';  
   
   export const Img = styled.img`
     width: 70%;
@@ -13,7 +12,7 @@ import { useStepperContext } from '../context/StepperContext';
  
  const Account = () => {
   
-    const {userData,setUserData} = useStepperContext();
+    const {userData,setUserData} = useContext(StepperContext);
     const handleChange =(e) => {
       const {name,value} = e.target;
       setUserData({...userData,[name]:value});

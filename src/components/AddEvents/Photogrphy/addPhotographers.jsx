@@ -4,8 +4,7 @@ import Image from './../../../images/Personal site.gif'
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 // import { yupResolver } from "@hookform/resolvers";
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
+
 
 const AddPhotographers = () => {
   const  [hasInstagram, setHasInstagram] = useState(false);
@@ -71,7 +70,7 @@ const AddPhotographers = () => {
                                     
                                     )}
 
-<FormControlLabel
+                                  <FormControlLabel
                                     control={
                                       <Checkbox onClick={handleClickFacebook} checked={hasFacebook} color="primary"  name="hasPhone" />
                                     }

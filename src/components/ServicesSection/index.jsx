@@ -4,6 +4,8 @@ import Destination from './../../images/destinations.svg'
 import Photography from './../../images/photography.svg'
 import Cattering from './../../images/cattering.svg'
 import Decorators from './../../images/decorators.svg'
+import Music from './../../images/Music.png'
+import Beauty from './../../images/Beauty.png'
 
 const Services = () => {
   return (
@@ -29,6 +31,16 @@ const Services = () => {
                 <ServicesCard>
                     <ServicesIcon src={Decorators}/>
                     <ServicesH2> Decorators  </ServicesH2>
+                    <ServicesP>   </ServicesP>
+                </ServicesCard>
+                <ServicesCard>
+                    <ServicesIcon src={Music}/>
+                    <ServicesH2> Music Band  </ServicesH2>
+                    <ServicesP>   </ServicesP>
+                </ServicesCard>
+                <ServicesCard>
+                    <ServicesIcon src={Beauty}/>
+                    <ServicesH2> Beauticians  </ServicesH2>
                     <ServicesP>   </ServicesP>
                 </ServicesCard>
             </ServicesWrapper>

@@ -1,7 +1,6 @@
-import { useContext } from 'react';
-
+import React,{ useContext} from 'react';
 import styled from 'styled-components';
-import { useStepperContext } from '../context/StepperContext';
+import { StepperContext } from '../context/StepperContext';
 
 
 import Image from './../../../images/Enter OTP.gif';
@@ -14,7 +13,8 @@ export const Img = styled.img`
 `
 
 export default function OTPInformation() {
-  const {userData,setUserData} = useStepperContext();
+  const {userData,setUserData} = useContext(StepperContext);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
