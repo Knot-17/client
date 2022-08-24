@@ -1,8 +1,15 @@
-import React from 'react'
+import React , {useState} from 'react'
 import { FormBox, FormContainer, ImageBox, ImageContainer, Input, InputBox, InputContainerLeft,  Label, PrimaryContainer, SecondaryContainer, TitleContainer ,Form, MainContainer, InputContainerFull, InputContainerSingle, InputContainerDouble, ButtonContainer, Button } from '../AddEventsElements'
 import Image from './../../../images/Personal site.gif'
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+
 
 const AddDestinations = () => {
+  const  [hasInstagram, setHasInstagram] = useState(false);
+  const handleClickInstagram = () => setHasInstagram(!hasInstagram) 
+  const  [hasFacebook, setHasFacebook] = useState(false);
+  const handleClickFacebook = () => setHasFacebook(!hasFacebook)
   return (
     <>
       <MainContainer>
@@ -61,6 +68,43 @@ const AddDestinations = () => {
                               </InputBox>
                             </InputContainerLeft>
                           </InputContainerSingle>
+                          <InputContainerFull>
+                            
+                            <Label>Social Media</Label>
+                            
+                            <FormControlLabel
+                                  control={
+                                    <Checkbox onClick={handleClickInstagram} checked={hasInstagram} color="primary"  name="hasPhone" />
+                                  }
+                                  label="Instagram Page"
+                                />
+                                 {hasInstagram && (
+                                  <InputContainerLeft>
+                                    <Label>Instagram URL</Label>
+                                    <InputBox>
+                                      <Input/>
+                                    </InputBox>
+                                  </InputContainerLeft>
+                                  
+                                  )}
+
+                                <FormControlLabel
+                                  control={
+                                    <Checkbox onClick={handleClickFacebook} checked={hasFacebook} color="primary"  name="hasPhone" />
+                                  }
+                                  label="Facebook Page"
+                                />
+                                 {hasFacebook && (
+                                  <InputContainerLeft>
+                                    <Label>Facebook URL</Label>
+                                    <InputBox>
+                                      <Input/>
+                                    </InputBox>
+                                  </InputContainerLeft>
+                                  
+                                  )}
+                                  
+                        </InputContainerFull>
                           <InputContainerDouble>
                             <InputContainerLeft>
                               <Label> Guest Count </Label>

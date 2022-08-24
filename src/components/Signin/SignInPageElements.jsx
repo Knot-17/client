@@ -98,3 +98,26 @@ export const SignInSubmitButton = styled.button`
             opacity:0.9 ;
         }
 `
+
+
+export const FormContainer = styled.form`
+    display: flex;
+    flex-direction: column;
+`
+
+export const FieldError = styled.span`
+  color: #b32e2e;
+  font-size: 11px;
+`;
+
+export const FormSuccess = styled.span`
+  color: #28a828;
+  font-size: 12px;
+  min-height: 20px;
+  font-weight: 600;
+`;
+
+export const FormError = styled.span`
+  color: #b32e2e;
+  font-size: 11px;
+`;
