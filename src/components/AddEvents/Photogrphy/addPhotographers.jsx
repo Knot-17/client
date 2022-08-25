@@ -22,7 +22,7 @@ const AddPhotographers = () => {
                   <ImageBox src={Image} />
                 </ImageContainer>
                 <FormContainer>
-                    <TitleContainer> Add your sight! </TitleContainer>
+                    <TitleContainer> Add your Album! </TitleContainer>
                     <Form>
                       <FormBox>
                          <InputContainerFull>
@@ -108,6 +108,14 @@ const AddPhotographers = () => {
                                 <Input  />
                               </InputBox>
                             </InputContainerLeft>
+                          </InputContainerSingle>
+                          <InputContainerSingle>
+                            <InputContainerLeft>
+                                <Label> Amount </Label>
+                                <InputBox>
+                                  <Input  />
+                                </InputBox>
+                              </InputContainerLeft>
                           </InputContainerSingle>
                           <Label> Upload Samples </Label>
                           <InputContainerDouble>
