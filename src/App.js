@@ -11,6 +11,7 @@ import AddBeauticians from './components/AddEvents/Beauticians/addBeauticians';
 import AddMusicbands from './components/AddEvents/Musicbands/addMusicbands';
 import AddCateres from './components/AddEvents/Caterers/addCaterers';
 import AddDecorators from './components/AddEvents/Decorators/addDecorators';
+import UserScreen from './screens/userView';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='/add/caterers' component={AddCateres} exact />
           <Route path='/add/deco' component={AddDecorators} exact />
           <Route path='/form' component={Form} exact />
+          <Route path='/user' component={UserScreen} exact />
         </Switch>
     </Router>
   );

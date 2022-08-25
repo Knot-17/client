@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {MdKeyboardArrowRight,MdArrowForward} from 'react-icons/md';
 
 export const ServicesContainer = styled.div`
     height: 1200px;
@@ -26,6 +27,7 @@ export const ServicesWrapper = styled.div`
     justify-content: center;
     grid-gap: 26px;
     padding: 0 50px;
+    margin-bottom: 20px;
 
     @media screen and (max-width:768px){
         grid-template-columns: 1fr;
@@ -82,4 +84,14 @@ export const ServicesH2 = styled.h2`
 export const ServicesP = styled.p`
     font-size: 1rem;
     text-align: center;
+`
+
+export const ArrowForward = styled(MdArrowForward)`
+    margin-left: 8px;
+    font-size: 20px;
+`
+
+export const ArrowRight = styled(MdKeyboardArrowRight)`
+    margin-left: 8px;
+    font-size: 20px;
 `

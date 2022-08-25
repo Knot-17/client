@@ -1,5 +1,5 @@
-import React from 'react'
-import { ServicesCard, ServicesContainer, ServicesH1, ServicesH2, ServicesIcon, ServicesP, ServicesWrapper } from './servicesElements'
+import React ,{useState} from 'react'
+import { ServicesCard, ServicesContainer, ServicesH1, ServicesH2, ServicesIcon, ServicesP, ServicesWrapper ,ArrowForward,ArrowRight } from './servicesElements'
 import Destination from './../../images/destinations.svg'
 import Photography from './../../images/photography.svg'
 import Cattering from './../../images/cattering.svg'
@@ -7,7 +7,21 @@ import Decorators from './../../images/decorators.svg'
 import Music from './../../images/Music.png'
 import Beauty from './../../images/Beauty.png'
 
+import {useHistory} from 'react-router-dom';
+
+
+import { Button } from '../ButtonElements';
+
 const Services = () => {
+    const history = useHistory();
+    const [hover,setHover] =useState(false);
+    const onHover = ()=>{
+      setHover(!hover)
+    }
+
+    const navigateToVendors = () => {
+        history.push('/user')
+    }
   return (
     <>
         <ServicesContainer id='services'>
@@ -44,6 +58,7 @@ const Services = () => {
                     <ServicesP>   </ServicesP>
                 </ServicesCard>
             </ServicesWrapper>
+            <Button onClick={navigateToVendors} to='' onMouseEnter={onHover} onMouseLeave={onHover} primary='true' dark='true' > Explore Services {hover ? <ArrowForward/> : <ArrowRight/>}  </Button>
         </ServicesContainer>
     </>
   )
