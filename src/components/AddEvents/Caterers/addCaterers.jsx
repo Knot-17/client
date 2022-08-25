@@ -6,7 +6,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 // import { yupResolver } from "@hookform/resolvers";
 
 
-const AddBeauticians = () => {
+const AddCateres = () => {
   const  [hasInstagram, setHasInstagram] = useState(false);
   const handleClickInstagram = () => setHasInstagram(!hasInstagram) 
   const  [hasFacebook, setHasFacebook] = useState(false);
