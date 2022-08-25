@@ -15,6 +15,12 @@ function Step05() {
 <label className="text-[14px] lg:text-[18px] xl:text-[20px]">We plan to invite </label>&nbsp;
 <select className='border-b-2 border-slate-300 text-[14px] lg:text-[18px] xl:text-[20px]' >
     <option value="" disabled selected hidden>Estimated guest count</option>
+    <option value="">0-100</option>
+    <option value="">100-250</option>
+    <option value="">250-500</option>
+    <option value="">500-1000</option>
+    <option value="">1000 +</option>
+
    
     
   </select>
@@ -22,6 +28,10 @@ function Step05() {
   <label className="text-[14px] lg:text-[18px] xl:text-[20px]">and spend about </label>&nbsp;
 <select className='border-b-2 border-slate-300 text-[14px] lg:text-[18px] xl:text-[20px]' >
     <option value="" disabled selected hidden>Budget range</option>
+    <option value="" >500000 Rs - 600000 Rs</option>
+    <option value="" >600000 Rs - 1000000 Rs</option>
+    <option value="" >1000000 Rs - 1500000 Rs</option>
+    <option value="" >1500000 Rs - 2000000 Rs</option>
    
     
   </select>

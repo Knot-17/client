@@ -6,7 +6,7 @@ function Step02() {
     <div className=' w-[100%] h-[40vh]   rounded-2xl pb-2 flex flex-col p-10
     items-center '>
         
-      <h1 className="text-center font-semibold text-[16px] lg:text-[20px] xl:text-[24px]">When did you get engaged?</h1> <br></br>
+      <h1 className="text-center font-semibold text-[16px] lg:text-[20px] xl:text-[24px]">When you are going to get married?</h1> <br></br>
      
 <form className="absolute top-[200px]">
 

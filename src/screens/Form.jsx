@@ -7,7 +7,6 @@ import Step03 from '../components/steps/Step03';
 import Step04 from '../components/steps/Step04';
 import Step05 from '../components/steps/Step05';
 import Step06 from '../components/steps/Step06';
-import Step07 from '../components/steps/Step07';
 
 import  st01 from '../images/st01.svg';
 import  st02 from '../images/st02.svg';
@@ -21,7 +20,7 @@ function Form () {
    const [step, setStep] = useState(0); 
 
    const Steps = ["STEP 1", "STEP 2", "STEP 3", "STEP 4",
-   "STEP 5", "STEP 6", "STEP 7"];
+   "STEP 5", "STEP 6"];
 
    const DisplaySteps = () =>{
     switch(step) {
@@ -37,9 +36,7 @@ function Form () {
           return <Step05/>  
         case 5:
           return <Step06/> 
-        case 6:
-          return <Step07/> 
-        default:            
+           
       }
    }
 
@@ -56,8 +53,6 @@ function Form () {
         case 4:
           return  <img src={st05} className="hidden md:block h-[120%] absolute left-[100%] top-[30px] lg:top-[-20px] xl:top-[-35px]" alt="img"/>
         case 5:
-          return <Step06/> 
-        case 6:
           return <img src={st07} className="hidden md:block h-[120%] absolute left-[100%] top-[60px] lg:top-[10px] xl:top-[0px]" alt="img"/>
         default:            
       }
@@ -77,7 +72,7 @@ function Form () {
        
         <div className='ml-[8%]'>
             {/*header */}
-            <h1 className=' text-[14px] xl:text-[16px]'>{Steps[step]} OF 7</h1>
+            <h1 className=' text-[14px] xl:text-[16px]'>{Steps[step]} OF 6</h1>
         </div>
 
       <div className='grid justify-items-center w-[100%]'>
@@ -86,7 +81,7 @@ function Form () {
             
             <div  className={` h-[100%] bg-green-700 rounded
             ${step === 0 ? "w-[12%]" : step === 1 ? "w-[24%]" : step === 2 ? "w-[36%]" : step === 3 ? "w-[48%]" :
-             step === 4 ? "w-[60%]" : step === 5 ? "w-[72%]" : step === 6 ? "w-[84%]" : ""}
+             step === 4 ? "w-[60%]" :"w-[100%]"}
             } `}>
             </div>
           </div>    

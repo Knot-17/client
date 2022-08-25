@@ -31,6 +31,20 @@ function Step04() {
 <label className="text-[14px] lg:text-[18px] xl:text-[20px]">During </label>&nbsp;
 <select className='border-b-2 border-slate-300 text-[14px] lg:text-[18px] xl:text-[20px]' >
     <option value="" disabled selected hidden >Season</option>
+    <option value=""    >January</option>
+    <option value=""    >February</option>
+    <option value=""    >March</option>
+    <option value=""    >April</option>
+    <option value=""    >May</option>
+    <option value=""    >June</option>
+    <option value=""    >July</option>
+    <option value=""    >August</option>
+    <option value=""    >September</option>
+    <option value=""    >October</option>
+    <option value=""    >November</option>
+    <option value=""    >December</option>
+
+
    
   </select>
   &emsp;
