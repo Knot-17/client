@@ -13,7 +13,7 @@ function Step07() {
 <label className="text-[14px] lg:text-[18px] xl:text-[20px]">Items</label>
 <br></br>
 <input type="radio"/>
-<label className="text-[14px] lg:text-[18px] xl:text-[20px]">Chash</label>
+<label className="text-[14px] lg:text-[18px] xl:text-[20px]">Cash</label>
 <br></br>
 <input type="radio"/>
 <label className="text-[14px] lg:text-[18px] xl:text-[20px]">Both items and Cash</label>

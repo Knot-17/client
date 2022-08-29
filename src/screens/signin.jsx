@@ -22,7 +22,7 @@ const SignInPage = () => {
     });
 
     if(response.status === 200){
-      alert('Authenticating .....');
+      alert('Authenticated');
     }
   }
 
