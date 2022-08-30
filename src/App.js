@@ -12,6 +12,14 @@ import AddMusicbands from './components/AddEvents/Musicbands/addMusicbands';
 import AddCateres from './components/AddEvents/Caterers/addCaterers';
 import AddDecorators from './components/AddEvents/Decorators/addDecorators';
 import UserScreen from './screens/userView';
+import Profile from './components/Profile/Profile';
+
+import './assets/boxicons-2.0.7/css/boxicons.min.css'
+import UserDetails from './components/Profile/ProfilePages/UserDetails';
+import AccountDetails from './components/Profile/ProfilePages/AccountDetails';
+import WeddingDetails from './components/Profile/ProfilePages/WeddingDetails';
+
+import Routes from './components/Profile/Routes/Routes';
 
 function App() {
   return (
@@ -28,6 +36,8 @@ function App() {
           <Route path='/add/deco' component={AddDecorators} exact />
           <Route path='/form' component={Form} exact />
           <Route path='/user' component={UserScreen} exact />
+          <Route path='/user/profile' component={Profile} exact />
+          {Routes.map(props => <Route exact {...props} />)}
         </Switch>
     </Router>
   );

@@ -1,0 +1,17 @@
+[
+    {
+        "display_name": "Personal Details",
+        "route": "/user/profile",
+        "icon": "bx bx-category-alt"
+    },
+    {
+        "display_name": "Wedding Details",
+        "route": "/user/profile/weddingdetails",
+        "icon": "bx bx-user-pin"
+    },
+    {
+        "display_name": "Account Management",
+        "route": "/user/profile/accountdetails",
+        "icon": "bx bx-package"
+    }
+]
