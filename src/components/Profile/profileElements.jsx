@@ -7,7 +7,7 @@ export const MainContainer = styled.div`
     justify-content:center;
     align-items:center;
     width:100%;
-    height:100%;
+    height:auto;
     background-color: var(--second-white);
 
 `
@@ -17,17 +17,18 @@ export const ContentContainer = styled.div`
     flex-direction : column ;
     align-items:center;
     width:100%;
-    height:100vh;
+    height:90vh;
     background-color: var(--second-white);
+    border-right: 2px solid var(--main-green);
 `
 
 export const ProfileContainer = styled.div`
     display:flex;
     flex-direction : column ;
     width:100%;
-    min-height:100vh;
+    min-height:90vh;
     padding-left: 20px;
-    background-color: var(--main-green);
+    background-color: var(--second-white);
 `
 
 export const TitleContainer = styled.div`
@@ -53,6 +54,116 @@ export const ListContainer = styled.div`
     display:flex;
     flex-direction : column ;
     align-items: center;
-    
     `
 
+export const FormContainer = styled.div`
+    display: flex;
+    flex-direction : column;
+    margin-top: 60px;
+    margin-left: 20px;
+    width: 70%;
+    height: auto;
+    background-color: var(--second-white);
+    border-radius: 10px;
+`
+
+export const Form = styled.form`
+    display:flex;
+    flex-direction : column ;
+    width:100%;
+`
+
+export const InputContainerDouble = styled.div`
+   display: grid;
+   grid-template-columns: 47% 47%;
+   justify-content: space-between;
+   margin-left: 10px;
+`
+
+export const ButtonContainer = styled.div`
+   display: flex;
+   justify-content: space-between;
+   margin-left: 10px;
+`
+
+export const ButtonElement = styled.button`
+    color: var(--second-white);
+    background-color: var(--main-green);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px 0px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover{
+        background-color: var(--main-green-hover);
+    }
+`
+
+
+export const InputContainerLeft = styled.div`
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-block-end: 1rem;   
+`
+
+export const InputContainerCheckbox = styled.div`
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+`
+
+export const Label = styled.div`
+    font-weight: bold;
+    height: 2rem;
+    margin-top: 3px;
+    color: #717171;
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    line-height: 2rem;
+`
+export const InputBox = styled.div`
+    display:flex;
+    border: solid;
+    border-color: #f5f5f5;
+    border-radius: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+`
+
+export const Input = styled.input`
+    padding: 1px;
+    padding-right: 2px;
+    padding-left: 2px;
+    appearance: none;
+    outline: none;
+    width: 100%;
+    height: 2.5rem;
+    color: rgb(34, 32, 32);
+`
+
+export const Select = styled.select`
+    padding: 1px;
+    padding-right: 2px;
+    padding-left: 2px;
+    outline: none;
+    width: 100%;
+    height: 2.5rem;
+    color: rgb(34, 32, 32);
+`
+
+export const SubTitle = styled.h2`
+    font-size:1.5rem;
+    font-weight:bold;
+    margin-left: 10px;
+`
+
+
+export const CheckboxContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`

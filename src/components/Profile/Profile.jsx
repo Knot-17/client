@@ -3,6 +3,7 @@ import { MainContainer , ContentContainer,ProfileContainer, TitleContainer , Tit
 import { BrowserRouter, Route } from 'react-router-dom'
 import Sidebar from './sideBar'
 import Routes from './Routes/Routes'
+import Footer from './../Footer'
 
 const Profile = () => {
   return (
@@ -23,6 +24,7 @@ const Profile = () => {
                     {Routes.map(props => <Route exact {...props} />)}
                 </ProfileContainer>
             </MainContainer>
+            <Footer/>
         </BrowserRouter>
     </>
   )

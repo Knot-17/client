@@ -10,7 +10,8 @@
 
     --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     --sidebar-width: 300px;
-    --border-radius: 15px;
+    --border-radius: 10px;
 
+    --main-green-hover: #068550;
 
 }

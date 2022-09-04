@@ -15,9 +15,6 @@ import UserScreen from './screens/userView';
 import Profile from './components/Profile/Profile';
 
 import './assets/boxicons-2.0.7/css/boxicons.min.css'
-import UserDetails from './components/Profile/ProfilePages/UserDetails';
-import AccountDetails from './components/Profile/ProfilePages/AccountDetails';
-import WeddingDetails from './components/Profile/ProfilePages/WeddingDetails';
 
 import Routes from './components/Profile/Routes/Routes';
 
