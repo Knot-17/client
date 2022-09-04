@@ -4,7 +4,7 @@ import { green } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';
 
 
-const UserDetails = () => {
+const WeddingDetails = () => {
   return (
    <>
     <FormContainer>
@@ -185,4 +185,4 @@ const UserDetails = () => {
   )
 }
 
-export default UserDetails
+export default WeddingDetails

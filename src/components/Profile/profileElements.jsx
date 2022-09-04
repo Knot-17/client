@@ -10,6 +10,11 @@ export const MainContainer = styled.div`
     height:auto;
     background-color: var(--second-white);
 
+    @media screen and (max-width: 560px) {
+        display: flex;
+        flex-direction: column;
+    }
+
 `
 
 export const ContentContainer = styled.div`
@@ -17,7 +22,7 @@ export const ContentContainer = styled.div`
     flex-direction : column ;
     align-items:center;
     width:100%;
-    height:90vh;
+    min-height:100%;
     background-color: var(--second-white);
     border-right: 2px solid var(--main-green);
 `
@@ -26,7 +31,7 @@ export const ProfileContainer = styled.div`
     display:flex;
     flex-direction : column ;
     width:100%;
-    min-height:90vh;
+    min-height:100%;
     padding-left: 20px;
     background-color: var(--second-white);
 `
@@ -65,6 +70,11 @@ export const FormContainer = styled.div`
     height: auto;
     background-color: var(--second-white);
     border-radius: 10px;
+
+    @media screen and (max-width: 950px) {
+        width:90%;
+        margin-top: 0;
+    }
 `
 
 export const Form = styled.form`
@@ -78,10 +88,16 @@ export const InputContainerDouble = styled.div`
    grid-template-columns: 47% 47%;
    justify-content: space-between;
    margin-left: 10px;
+   @media screen and (max-width: 950px) {
+        display:flex;
+        flex-direction : column ;
+        width:90%;
+    }
 `
 
 export const ButtonContainer = styled.div`
    display: flex;
+   width: 50%;
    justify-content: space-between;
    margin-left: 10px;
 `
@@ -101,6 +117,21 @@ export const ButtonElement = styled.button`
     }
 `
 
+
+export const ButtonElementEdit = styled.button`
+    color: var(--second-white);
+    background-color: var(--danger-red);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px 0px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover{
+        background-color: var(--danger-red-hover);
+    }
+`
 
 export const InputContainerLeft = styled.div`
     display:flex;
@@ -167,3 +198,20 @@ export const CheckboxContainer = styled.div`
     display: flex;
     flex-direction: column;
 `
+
+
+export const InputContainerSingle = styled.div`
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+    width: 50%;
+    height:auto;
+`
+ export const Margin = styled.hr`
+    width: 50%;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px solid var(--main-green);
+ `
