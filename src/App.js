@@ -13,6 +13,8 @@ import AddCateres from './components/dealers/AddEvents/Caterers/addCaterers';
 import AddDecorators from './components/dealers/AddEvents/Decorators/addDecorators';
 import UserScreen from './screens/userView';
 import Profile from './components/clients/Profile/Profile';
+import SignUpPageDealers from './screens/signupdealers';
+
 
 import './assets/boxicons-2.0.7/css/boxicons.min.css'
 
@@ -24,6 +26,7 @@ function App() {
         <Switch>
           <Route path='/' component={Home} exact />
           <Route path='/signup' component={SignUpPage} exact />
+          <Route path='/signupdealers' component={SignUpPageDealers} exact />
           <Route path='/signin' component={SignInPage} exact />
           <Route path='/add/dest' component={AddDestinations} exact />
           <Route path='/add/photo' component={AddPhotographers} exact />

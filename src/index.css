@@ -5,9 +5,9 @@
 :root{
     --main-green: #01bf71;
     --second-white: #fff;
+
     --txt-white: #fff;
     --txt-green: #01bf71;
-
     --danger-red :#cd4747;
 
     --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -16,5 +16,4 @@
 
     --main-green-hover: #068550;
     --danger-red-hover: #ff7777;
-
 }
