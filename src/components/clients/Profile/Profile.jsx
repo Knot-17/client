@@ -3,7 +3,7 @@ import { MainContainer , ContentContainer,ProfileContainer, TitleContainer , Tit
 import { BrowserRouter, Route } from 'react-router-dom'
 import Sidebar from './sideBar'
 import Routes from './Routes/Routes'
-import Footer from './../Footer'
+import Footer from './../../home/Footer'
 
 const Profile = () => {
   return (

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 
 
-import Image from './../../../images/Completed.gif';
+import Image from '../../../../images/Completed.gif';
 
 export const Img = styled.img`
     width: 50%;

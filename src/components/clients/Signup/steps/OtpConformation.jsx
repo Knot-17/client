@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { StepperContext } from '../context/StepperContext';
 
 
-import Image from './../../../images/Enter OTP.gif';
+import Image from '../../../../images/Enter OTP.gif';
 
 export const Img = styled.img`
     width: 70%;

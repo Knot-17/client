@@ -1,6 +1,6 @@
 import React ,{useState} from 'react'
 import { FormBox, FormContainer, ImageBox, ImageContainer, Input, InputBox, InputContainerLeft,  Label, PrimaryContainer, SecondaryContainer, TitleContainer ,Form, MainContainer, InputContainerFull, InputContainerSingle, InputContainerDouble, ButtonContainer, Button, TextArea } from '../AddEventsElements'
-import Image from './../../../images/Personal site.gif'
+import Image from '../../../../images/Personal site.gif'
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 // import { yupResolver } from "@hookform/resolvers";

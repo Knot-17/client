@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
 
-import Step01 from '../components/steps/Step01';
-import Step02 from '../components/steps/Step02';
-import Step03 from '../components/steps/Step03';
-import Step04 from '../components/steps/Step04';
-import Step05 from '../components/steps/Step05';
-import Step06 from '../components/steps/Step06';
+import Step01 from '../components/clients/steps/Step01';
+import Step02 from '../components/clients/steps/Step02';
+import Step03 from '../components/clients/steps/Step03';
+import Step04 from '../components/clients/steps/Step04';
+import Step05 from '../components/clients/steps/Step05';
+import Step06 from '../components/clients/steps/Step06';
 
 import  st01 from '../images/st01.svg';
 import  st02 from '../images/st02.svg';

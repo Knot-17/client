@@ -1,5 +1,5 @@
 import React,{ useContext , useState } from 'react';
-import Image from './../../../images/Personal site.gif';
+import Image from '../../../../images/Personal site.gif';
 import styled from 'styled-components';
 import { StepperContext } from '../context/StepperContext';
 import { useForm } from "react-hook-form";

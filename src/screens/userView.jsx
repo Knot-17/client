@@ -1,5 +1,5 @@
 import React from 'react'
-import UserView from '../components/Userview'
+import UserView from '../components/clients/Userview'
 
 const UserScreen = () => {
   return (

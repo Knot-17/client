@@ -4,19 +4,19 @@ import {BrowserRouter as Router , Switch , Route} from 'react-router-dom';
 import Home from './screens';
 import SignUpPage from './screens/signup';
 import SignInPage from './screens/signin';
-import AddDestinations from './components/AddEvents/Destinations/addDestination';
+import AddDestinations from './components/dealers/AddEvents/Destinations/addDestination';
 import Form from './screens/Form';
-import AddPhotographers from './components/AddEvents/Photogrphy/addPhotographers';
-import AddBeauticians from './components/AddEvents/Beauticians/addBeauticians';
-import AddMusicbands from './components/AddEvents/Musicbands/addMusicbands';
-import AddCateres from './components/AddEvents/Caterers/addCaterers';
-import AddDecorators from './components/AddEvents/Decorators/addDecorators';
+import AddPhotographers from './components/dealers/AddEvents/Photogrphy/addPhotographers';
+import AddBeauticians from './components/dealers/AddEvents/Beauticians/addBeauticians';
+import AddMusicbands from './components/dealers/AddEvents/Musicbands/addMusicbands';
+import AddCateres from './components/dealers/AddEvents/Caterers/addCaterers';
+import AddDecorators from './components/dealers/AddEvents/Decorators/addDecorators';
 import UserScreen from './screens/userView';
-import Profile from './components/Profile/Profile';
+import Profile from './components/clients/Profile/Profile';
 
 import './assets/boxicons-2.0.7/css/boxicons.min.css'
 
-import Routes from './components/Profile/Routes/Routes';
+import Routes from './components/clients/Profile/Routes/Routes';
 
 function App() {
   return (

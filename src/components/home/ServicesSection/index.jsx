@@ -1,16 +1,16 @@
 import React ,{useState} from 'react'
 import { ServicesCard, ServicesContainer, ServicesH1, ServicesH2, ServicesIcon, ServicesP, ServicesWrapper ,ArrowForward,ArrowRight } from './servicesElements'
-import Destination from './../../images/destinations.svg'
-import Photography from './../../images/photography.svg'
-import Cattering from './../../images/cattering.svg'
-import Decorators from './../../images/decorators.svg'
-import Music from './../../images/Music.png'
-import Beauty from './../../images/Beauty.png'
+import Destination from '../../../images/destinations.svg'
+import Photography from '../../../images/photography.svg'
+import Cattering from '../../../images/cattering.svg'
+import Decorators from '../../../images/decorators.svg'
+import Music from '../../../images/Music.png'
+import Beauty from '../../../images/Beauty.png'
 
 import {useHistory} from 'react-router-dom';
 
 
-import { Button } from '../ButtonElements';
+import { Button } from '../../ButtonElements';
 
 const Services = () => {
     const history = useHistory();

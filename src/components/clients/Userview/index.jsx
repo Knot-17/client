@@ -1,7 +1,7 @@
 import React ,{useState} from 'react'
 import { HeroContainer ,TextWrapper,VendorsContainerBlackBg,VendorsContainerWhiteBg,VideoBg, Wrapper,Heading,ArrowForward, ArrowRight, HeroBg, HeroButtonWrapper, HeroContent, HeroH1, HeroP } from './userViewElements'
-import { Button } from '../ButtonElements';
-import Video from './../../videos/wedding.mp4';
+import { Button } from '../../ButtonElements';
+import Video from '../../../videos/wedding.mp4';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
@@ -15,7 +15,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import StarIcon from '@mui/icons-material/Star';
 import AddIcon from '@mui/icons-material/Add';
-import Music from './../../images/Music.png'
+import Music from '../../../images/Music.png'
 
 
 import './icon.css'

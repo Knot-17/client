@@ -1,5 +1,5 @@
   import React, {useContext } from 'react';
-  import Image from './../../../images/Account.gif';
+  import Image from '../../../../images/Account.gif';
   import styled from 'styled-components';
   import { StepperContext } from '../context/StepperContext';  
   

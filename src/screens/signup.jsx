@@ -1,14 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
-import Stepper from '../components/Signup/Stepper';
-import StepperControl from '../components/Signup/StepperControl';
-import { StepperContext } from '../components/Signup/context/StepperContext';
+import Stepper from '../components/clients/Signup/Stepper';
+import StepperControl from '../components/clients/Signup/StepperControl';
+import { StepperContext } from '../components/clients//Signup/context/StepperContext';
 
-import Account from '../components/Signup/steps/Account';
-import Complete from '../components/Signup/steps/Complete';
-import OtpConformation from '../components/Signup/steps/OtpConformation';
-import PersonalDetails from '../components/Signup/steps/PersonalDetails';
-import generateOTP from '../components/Signup/otp';
+import Account from '../components/clients/Signup/steps/Account';
+import Complete from '../components/clients/Signup/steps/Complete';
+import OtpConformation from '../components/clients/Signup/steps/OtpConformation';
+import PersonalDetails from '../components/clients/Signup/steps/PersonalDetails';
+import generateOTP from '../components/clients/Signup/otp';
 import emailjs from 'emailjs-com';
 
 import axios from "axios";

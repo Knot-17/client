@@ -1,6 +1,6 @@
-import Wedding from './../../images/wedding.svg';
-import Love_1 from './../../images/love_1.svg';
-import TextField from './../../images/text_field.svg';
+import Wedding from '../../../images/wedding.svg';
+import Love_1 from '../../../images/love_1.svg';
+import TextField from '../../../images/text_field.svg';
 
 export const homeObjOne = {
     id:'about',

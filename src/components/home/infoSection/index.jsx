@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '../ButtonElements'
+import { Button } from '../../ButtonElements'
 import { BtnWrap, Column1, Column2, Heading, ImgWrap, InfoContainer, InfoRow, InfoWrapper, Subtitle, TextWrapper, TopLine ,Img} from './infoElements'
 
 import {useHistory} from 'react-router-dom';
