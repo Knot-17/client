@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link as a } from 'react-router-dom';
 
 export const SignInWrapper = styled.div`
     height:auto;
@@ -75,7 +76,7 @@ export const MutedLink = styled.div`
     
 `
 
-export const ActiveLink = styled.a`
+export const ActiveLink = styled(a)`
     font-size: small;
     color: #01bf71;
     text-decoration: none;

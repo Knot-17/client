@@ -76,7 +76,7 @@ const SignInPage = () => {
                       </SignInInputBox>
                       {<FieldError>{formik.touched.password && formik.errors.password ? formik.errors.password : '' }</FieldError>}
                       <SignInLinkBox>  
-                        <MutedLink> Forgot your Password ? <ActiveLink>Click here</ActiveLink>  </MutedLink>
+                        <MutedLink> Forgot your Password ? <ActiveLink to='/forgotpass'>Click here</ActiveLink>  </MutedLink>
                       </SignInLinkBox>
                       <SignInSubmitButton disabled={!formik.isValid}>Sign In</SignInSubmitButton>
                       <MutedLink> Don't have an account ? <ActiveLink>SignUp</ActiveLink>  </MutedLink> 
