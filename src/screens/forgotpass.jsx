@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import React, { useState } from 'react'
 import { ActiveLink, FormContainer, MutedLink, SignInFormContainer, SignInHead, SignInImage, SignInInputBox, SignInLinkBox, SignInSubmitButton, SignInWrapper ,FieldError,FormError} from '../components/common/Forgotpass/ForgotpassPageElements';
-import Image from './../images/Computer login.gif';
+import Image from './../images/forgotpass.svg';
 import axios from 'axios';
 import * as yup from "yup";
 
