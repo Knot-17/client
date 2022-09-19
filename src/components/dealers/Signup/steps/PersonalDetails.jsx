@@ -1,7 +1,7 @@
 import React,{ useContext , useState } from 'react';
 import Image from '../../../../images/Personal site.gif';
 import styled from 'styled-components';
-import { StepperContext } from '../context/StepperContext';
+import { DealersContext } from '../context/DealersContext';
 import { useForm } from "react-hook-form";
 
 import {useFormik} from "formik";
@@ -44,7 +44,7 @@ const validation = yup.object({
 });
 
 export default function PersonalDetails() {
-  const {dealersData,setDealersData} = useContext(StepperContext);
+  const {dealersData,setDealersData} = useContext(DealersContext);
   const {success,setSuccess} = useState(null);
 
   // const {register,handleSubmit,formState:{errors}} = useForm();y

@@ -2,14 +2,33 @@ import React,{ useContext , useState } from 'react';
 import 'antd/dist/antd.css';
 import Image from '../../../../images/Personal site.gif';
 import styled from 'styled-components';
-import { StepperContext } from '../context/StepperContext';
-import { UploadOutlined } from '@ant-design/icons';
-import { Button, Upload } from 'antd'
+import { DealersContext } from '../context/DealersContext';
+
 import * as yup from "yup";
 
-
-import Select from 'react-select';
+import { useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import Chip from '@mui/material/Chip';
 import { districts, typesOfServices } from '../data/data';
+
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+
+
 
 export const Img = styled.img`
   width: 70%;
@@ -31,30 +50,39 @@ const FormSuccess = styled.span`
 `;
 
 
-const props = {
-    action: '//jsonplaceholder.typicode.com/posts/',
-    listType: 'picture',
-  
-    previewFile(file) {
-      console.log('Your upload file:', file); // Your process logic. Here we just mock to the same file
-  
-      return fetch('https://next.json-generator.com/api/json/get/4ytyBoLK8', {
-        method: 'POST',
-        body: file,
-      })
-        .then((res) => res.json())
-        .then(({ thumbnail }) => thumbnail);
-    },
+function getStyles(name, districts, theme) {
+  return {
+    fontWeight:
+      districts.indexOf(name) === -1
+        ? theme.typography.fontWeightRegular
+        : theme.typography.fontWeightMedium,
+  };
+}
+
+export default function PersonalDetails() {
+  const {dealersData,setDealersData} = useContext(DealersContext);
+  const {success,setSuccess} = useState(null);
+  const {services, setServices} =useContext(DealersContext);
+  const {district, setDistrict} = useContext(DealersContext);
+
+
+  const theme = useTheme();
+
+  const handleChangeDistrict = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setDistrict(
+      // On autofill we get a stringified value.
+      typeof value === 'string' ? value.split(',') : value,
+    );
+
   };
 
 
-
-
-export default function PersonalDetails() {
-  const {dealersData,setDealersData} = useContext(StepperContext);
-  const {success,setSuccess} = useState(null);
-
-  // const {register,handleSubmit,formState:{errors}} = useForm();y
+  const handleChangeService = (event) => {
+    setServices(event.target.value);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -62,18 +90,12 @@ export default function PersonalDetails() {
   };
 
 
-  // const formik = useFormik({initialValues:{firstname:"",lastname:""},
-  // validationSchema:validation,
-  // validateOnBlur:true
-  // })
-
   return (
     <div className='grid grid-flow-col grid-cols-2'>
       <div className='flex justify-center items-center h-full w-full '>
           <Img src={Image}/>
       </div>
       <form>
-      {/* <FormSuccess> {success ? success : ""} </FormSuccess>  */}
 
           <div className="flex flex-col ">
             <div className="flex flex-col"> 
@@ -81,15 +103,29 @@ export default function PersonalDetails() {
                 <div className="font-bold h-6 mt-3 text-gray-500 text-xs leading-8 uppercase">
                   Services Types
                 </div>
-                <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
-                  <Select
-                    name="servicestype"
-                    onChange={handleChange}
-                    options={typesOfServices}
-                    classNamePrefix ="select"
-                    // {...register("firstname",{required:true,maxLength:3})}
-                    className="appearance-none outline-none h-full w-full text-gray-800 "
-                  />
+                <div className="bg-white flex border border-gray-200 rounded">
+                  {/* select */}
+                  <FormControl sx={{ m: 1, width: '100%'  , height: '100%'}}>
+                    <InputLabel id="demo-multiple-chip-label">Services</InputLabel>
+                    <Select
+                      labelId="demo-select-small"
+                      id="demo-select-small"
+                      value={services}
+                      label="Services"
+                      name ="services"
+                      onChange={handleChangeService}
+                    >
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value="Destination">Destination</MenuItem>
+                      <MenuItem value="Photography">Photography</MenuItem>
+                      <MenuItem value="Decoration">Decoration</MenuItem>
+                      <MenuItem value="Catering">Catering</MenuItem>
+                      <MenuItem value="Makeup">Makeup</MenuItem>
+                      <MenuItem value="Music Band">Music Band</MenuItem>
+                    </Select>
+                  </FormControl>
                 </div>
                   {/* {errors.firstname && <FieldError>PLease</FieldError>} */}
               </div>
@@ -97,16 +133,39 @@ export default function PersonalDetails() {
                 <div className="font-bold h-6 mt-3 text-gray-500 text-xs leading-8 uppercase">
                   Services Locations
                 </div>
-                <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
-                  <Select
-                    isMulti
-                    name="districts"
-                    options={districts}
-                    classNamePrefix ="select"
-                    onChange={handleChange}
-                    // {...register("firstname",{required:true,maxLength:3})}
-                    className="appearance-none outline-none h-full w-full text-gray-800 "
-                  />
+                <div className="bg-white  flex border border-gray-200 rounded">
+                 {/* multi select  */}
+                 <FormControl sx={{ m: 1, width: '100%'  , height: '100%'}}>
+                    <InputLabel id="demo-multiple-chip-label">Select Districts</InputLabel>
+                    <Select
+                      labelId="demo-multiple-chip-label"
+                      id="demo-multiple-chip"
+                      multiple
+                      value={district}
+                      name="district"
+                      onChange={handleChangeDistrict}
+                      input={<OutlinedInput id="select-multiple-chip" label="Select Districts" />}
+                      renderValue={(selected) => (
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                          {selected.map((value) => (
+                            <Chip key={value} label={value} />
+                          ))}
+                        </Box>
+                      )}
+                      MenuProps={MenuProps}
+                    >
+                      {districts.map((name) => (
+                        <MenuItem
+                          key={name}
+                          value={name}
+                          style={getStyles(name, district, theme)}
+                        >
+                          {name}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                  
                 </div>
                   {/* {errors.firstname && <FieldError>PLease</FieldError>} */}
               </div>
@@ -116,12 +175,7 @@ export default function PersonalDetails() {
                 </div>  
 
                 <div className='bg-white my-2 p-1 flex border border-gray-200 rounded'>
-                    <Upload {...props}
-                        onChange={handleChange}
-                        name="displayPicture"
-                    >
-                        <Button icon={<UploadOutlined />}>Click to Upload</Button>
-                    </Upload>
+                    {/* upload */}
                 </div>
               </div>
               <div className='w-full mx-2 flex-1'>
@@ -134,7 +188,7 @@ export default function PersonalDetails() {
                         onChange={handleChange}
                         value={dealersData["description"]  || ""}
                         name='description'
-                        placeholder='description'
+                        placeholder='Description'
                         className='p-1 px-2 appearance-none outline-none w-full text-gray-800'
                     >
                     </textarea>

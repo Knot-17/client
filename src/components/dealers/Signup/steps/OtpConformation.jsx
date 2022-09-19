@@ -1,6 +1,6 @@
 import React,{ useContext} from 'react';
 import styled from 'styled-components';
-import { StepperContext } from '../context/StepperContext';
+import { DealersContext } from '../context/DealersContext';
 
 
 import Image from '../../../../images/Enter OTP.gif';
@@ -13,7 +13,7 @@ export const Img = styled.img`
 `
 
 export default function OTPInformation() {
-  const {dealersData,setDealersData} = useContext(StepperContext);
+  const {dealersData,setDealersData} = useContext(DealersContext);
 
 
   const handleChange = (e) => {

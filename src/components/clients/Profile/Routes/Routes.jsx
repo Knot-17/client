@@ -1,6 +1,3 @@
-import React from 'react'
-
-
 import UserDetails from '../ProfilePages/UserDetails'
 import AccountDetails from '../ProfilePages/AccountDetails'
 import WeddingDetails from '../ProfilePages/WeddingDetails'

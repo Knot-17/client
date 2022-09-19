@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Stepper from '../components/dealers/Signup/Stepper';
 import StepperControl from '../components/dealers/Signup/StepperControl';
-import { StepperContext } from '../components/dealers//Signup/context/StepperContext';
+import { DealersContext } from '../components/dealers/Signup/context/DealersContext';
 
 import Account from '../components/dealers/Signup/steps/Account';
 import Complete from '../components/dealers/Signup/steps/Complete';
@@ -28,6 +28,8 @@ function SignUpPageDealers()  {
   
   const [currentStep , setCurrentStep] = useState(1);
   const [dealersData , setDealersData] = useState('');
+  const [services, setServices] = useState('');
+  const [district, setDistrict] = useState([]);
   const [finalData , setFinalData] = useState([]);
   const [checkOTP , setCheckOTP] = useState('');
   const viewSteps = (step) => {
@@ -40,7 +42,7 @@ function SignUpPageDealers()  {
           return <Account/>
         case 4:
           return <OtpConformation/>
-        case 4:
+        case 5:
           return <Complete/>
         default : 
     }
@@ -49,10 +51,15 @@ function SignUpPageDealers()  {
 const submitData   = () =>{
   setFinalData(finalData => [...finalData , dealersData]);
   setDealersData(null);
+  const payload = {
+    "dealers":dealersData,
+    "services":services,
+    "district":district
+  }
   console.log(dealersData);
   if(checkOTP ===dealersData['otp']){
     const response = axios
-    .post("http://localhost:5000/api/v1/register", dealersData)
+    .post("http://localhost:5000/api/v1/register", payload)
     .catch((err) => {
       if (err && err.response);
         console.log(err)
@@ -134,9 +141,9 @@ const handleClick   = (direction) =>{
 
     <div className='my-10 p-10'>
       
-      <StepperContext.Provider value={{ dealersData,setDealersData,finalData,setFinalData}}>
+      <DealersContext.Provider value={{dealersData,setDealersData,finalData,setFinalData,services,setServices,district,setDistrict}}>
           {viewSteps(currentStep)}
-      </StepperContext.Provider>  
+      </DealersContext.Provider>  
     </div> 
     {currentStep !== steps.length &&
     <StepperControl

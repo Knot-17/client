@@ -1,7 +1,7 @@
   import React, {useContext } from 'react';
   import Image from '../../../../images/Account.gif';
   import styled from 'styled-components';
-  import { StepperContext } from '../context/StepperContext';  
+  import { DealersContext } from '../context/DealersContext';  
   
   export const Img = styled.img`
     width: 70%;
@@ -12,7 +12,7 @@
  
  const Account = () => {
   
-    const {dealersData,setDealersData} = useContext(StepperContext);
+    const {dealersData,setDealersData} = useContext(DealersContext);
     const handleChange =(e) => {
       const {name,value} = e.target;
       setDealersData({...dealersData,[name]:value});
