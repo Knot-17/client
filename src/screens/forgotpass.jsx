@@ -1,11 +1,11 @@
 import { useFormik } from 'formik';
 import React, { useState } from 'react'
-import { ActiveLink, FormContainer, MutedLink, SignInFormContainer, SignInHead, SignInImage, SignInInputBox, SignInLinkBox, SignInSubmitButton, SignInWrapper ,FieldError,FormError} from '../components/common/Signin/SignInPageElements';
-import Image from './../images/Computer login.gif';
+import { ActiveLink, FormContainer, MutedLink, SignInFormContainer, SignInHead, SignInImage, SignInInputBox, SignInLinkBox, SignInSubmitButton, SignInWrapper ,FieldError,FormError} from '../components/common/Forgotpass/ForgotpassPageElements';
+import Image from './../images/forgotpass.svg';
 import axios from 'axios';
 import * as yup from "yup";
 
-const SignInPage = () => {
+const ForgotpassPage = () => {
 
   const [error , setError] = useState(null);
 
@@ -34,12 +34,12 @@ const SignInPage = () => {
                 <SignInImage src={Image} />
                 <FormContainer onSubmit={formik.handleSubmit}>
                   <SignInFormContainer>
-                      <SignInHead>Sign In</SignInHead>
+                      <SignInHead>Forgot Password</SignInHead>
                       <FormError>{error ? error :''}</FormError>
                       <SignInInputBox> 
                           <div className="w-full mx-2 flex-1">
                                 <div className="font-bold h-6 mt-3 text-gray-500 text-xs leading-8 uppercase">
-                                  Username
+                                  Please Enter Your Username
                                 </div>
                                 <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
                                   <input
@@ -55,7 +55,7 @@ const SignInPage = () => {
                             
                       </SignInInputBox>
                       {<FieldError>{formik.touched.username && formik.errors.username ? formik.errors.username : '' }</FieldError>}
-                      <SignInInputBox> 
+                      {/* <SignInInputBox> 
                             <div className="w-full mx-2 flex-1">
                                   <div className="font-bold h-6 mt-3 text-gray-500 text-xs leading-8 uppercase">
                                     Password
@@ -73,13 +73,14 @@ const SignInPage = () => {
                                     />
                                   </div>
                               </div>
-                      </SignInInputBox>
-                      {<FieldError>{formik.touched.password && formik.errors.password ? formik.errors.password : '' }</FieldError>}
-                      <SignInLinkBox>  
-                        <MutedLink> Forgot your Password ? <ActiveLink to='/forgotpass'>Click here</ActiveLink>  </MutedLink>
-                      </SignInLinkBox>
-                      <SignInSubmitButton disabled={!formik.isValid}>Sign In</SignInSubmitButton>
-                      <MutedLink> Don't have an account ? <ActiveLink>SignUp</ActiveLink>  </MutedLink> 
+                      </SignInInputBox> */}
+                      {/* {<FieldError>{formik.touched.password && formik.errors.password ? formik.errors.password : '' }</FieldError>} */}
+                      {/* <SignInLinkBox>  
+                        <MutedLink> Forgot your Password ? <ActiveLink>Click here</ActiveLink>  </MutedLink>
+                      </SignInLinkBox> */}
+                      <h1>Send passwrod recovery email</h1>
+                      <SignInSubmitButton disabled={!formik.isValid}>Submit</SignInSubmitButton>
+                      {/* <MutedLink> Don't have an account ? <ActiveLink >SignUp</ActiveLink>  </MutedLink>  */}
                   </SignInFormContainer>
                 </FormContainer>
             </SignInWrapper>
@@ -92,4 +93,4 @@ const SignInPage = () => {
   )
 }
 
-export default SignInPage;
+export default ForgotpassPage;
