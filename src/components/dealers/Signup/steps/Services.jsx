@@ -4,6 +4,8 @@ import Image from '../../../../images/Personal site.gif';
 import styled from 'styled-components';
 import { DealersContext } from '../context/DealersContext';
 
+import { UploadOutlined } from '@ant-design/icons';
+import { Button, Upload } from 'antd';
 import * as yup from "yup";
 
 import { useTheme } from '@mui/material/styles';
@@ -64,6 +66,7 @@ export default function PersonalDetails() {
   const {success,setSuccess} = useState(null);
   const {services, setServices} =useContext(DealersContext);
   const {district, setDistrict} = useContext(DealersContext);
+  const {profile, setProfile} = useContext(DealersContext);
 
 
   const theme = useTheme();
@@ -84,6 +87,10 @@ export default function PersonalDetails() {
     setServices(event.target.value);
   };
 
+  const handleChangeProfile = (e) => {
+    setProfile([...profile, e.target.files[0]]);
+  }
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setDealersData({ ...dealersData, [name]: value });
@@ -103,7 +110,7 @@ export default function PersonalDetails() {
                 <div className="font-bold h-6 mt-3 text-gray-500 text-xs leading-8 uppercase">
                   Services Types
                 </div>
-                <div className="bg-white flex border border-gray-200 rounded">
+                <div className="bg-white flex  rounded">
                   {/* select */}
                   <FormControl sx={{ m: 1, width: '100%'  , height: '100%'}}>
                     <InputLabel id="demo-multiple-chip-label">Services</InputLabel>
@@ -133,7 +140,7 @@ export default function PersonalDetails() {
                 <div className="font-bold h-6 mt-3 text-gray-500 text-xs leading-8 uppercase">
                   Services Locations
                 </div>
-                <div className="bg-white  flex border border-gray-200 rounded">
+                <div className="bg-white  flex  rounded">
                  {/* multi select  */}
                  <FormControl sx={{ m: 1, width: '100%'  , height: '100%'}}>
                     <InputLabel id="demo-multiple-chip-label">Select Districts</InputLabel>
@@ -174,8 +181,19 @@ export default function PersonalDetails() {
                     Display Picture
                 </div>  
 
-                <div className='bg-white my-2 p-1 flex border border-gray-200 rounded'>
-                    {/* upload */}
+                <div className='bg-white my-2 p-1 flex  rounded'>
+                <Upload
+                  action={"http://localhost:3000/signupdealers"}
+                  name='file'
+                  listType="picture"
+                  maxCount={1}
+                  onChange={handleChangeProfile}
+                  beforeUpload={(file) =>
+                  {return false}}
+                  className='overflow-hidden'
+                >
+                  <Button icon={<UploadOutlined />}>Upload Profile</Button>
+                </Upload>
                 </div>
               </div>
               <div className='w-full mx-2 flex-1'>

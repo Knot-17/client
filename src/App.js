@@ -14,7 +14,7 @@ import './assets/boxicons-2.0.7/css/boxicons.min.css'
 
 import Routes from './components/clients/Profile/Routes/Routes';
 import Routes_Dealers from './components/dealers/Routes/Routes_Dealers';
-
+import Routes_Common from './components/common/Routes/Routes_Common';
 function App() {
   return (
     <Router>
@@ -22,12 +22,12 @@ function App() {
           <Route path='/' component={Home} exact />
           <Route path='/signup' component={SignUpPage} exact />
           <Route path='/signupdealers' component={SignUpPageDealers} exact />
-          <Route path='/signin' component={SignInPage} exact />
           <Route path='/form' component={Form} exact />
           <Route path='/user' component={UserScreen} exact />
           <Route path='/user/profile' component={Profile} exact />
           {Routes.map(props => <Route exact {...props} />)}
           {Routes_Dealers.map(props => <Route exact {...props} />)}
+          {Routes_Common.map(props => <Route exact {...props} />)}
         </Switch>
     </Router>
   );

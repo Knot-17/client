@@ -31,6 +31,7 @@ function SignUpPageDealers()  {
   const [services, setServices] = useState('');
   const [district, setDistrict] = useState([]);
   const [finalData , setFinalData] = useState([]);
+  const [profile, setProfile] = useState([]);
   const [checkOTP , setCheckOTP] = useState('');
   const viewSteps = (step) => {
     switch(step){
@@ -54,7 +55,8 @@ const submitData   = () =>{
   const payload = {
     "dealers":dealersData,
     "services":services,
-    "district":district
+    "district":district,
+    "profile":profile
   }
   console.log(dealersData);
   if(checkOTP ===dealersData['otp']){
@@ -141,7 +143,7 @@ const handleClick   = (direction) =>{
 
     <div className='my-10 p-10'>
       
-      <DealersContext.Provider value={{dealersData,setDealersData,finalData,setFinalData,services,setServices,district,setDistrict}}>
+      <DealersContext.Provider value={{dealersData,setDealersData,finalData,setFinalData,services,setServices,district,setDistrict,profile, setProfile}}>
           {viewSteps(currentStep)}
       </DealersContext.Provider>  
     </div> 
