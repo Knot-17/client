@@ -1,0 +1,22 @@
+[
+    {
+        "display_name": "User Management",
+        "route": "/admin/profile",
+        "icon": "bx bx-category-alt"
+    },
+    {
+        "display_name": "Dealers Management",
+        "route": "/admin/profile/dealers",
+        "icon": "bx bx-user-pin"
+    },
+    {
+        "display_name": "Ads Management",
+        "route": "/admin/profile/ads",
+        "icon": "bx bx-package"
+    },
+    {
+        "display_name": "Settings",
+        "route": "/admin/profile/settings",
+        "icon": "bx bx-package"
+    }
+]
