@@ -58,10 +58,10 @@ const submitData   = () =>{
     "district":district,
     "profile":profile
   }
-  console.log(dealersData);
+  console.log(payload);
   if(checkOTP ===dealersData['otp']){
     const response = axios
-    .post("http://localhost:5000/api/v1/register", payload)
+    .post("http://localhost:5000/api/v1/registerDealer", payload)
     .catch((err) => {
       if (err && err.response);
         console.log(err)
