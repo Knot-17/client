@@ -6,7 +6,7 @@ import { FilterContext } from './context/FilterContext';
 function Step02() {
   const {filterdata,setFilterdata} = useContext(FilterContext);
   const handleChange = (date, dateString) => {
-    setFilterdata ({ ...filterdata, "date": dateString });
+    setFilterdata ({ ...filterdata, "date": dateString  });
     console.log(date, dateString);
   };
   return (
@@ -19,6 +19,7 @@ function Step02() {
 <form className="absolute top-[200px]">
 
   <DatePicker onChange={handleChange} 
+  className="text-lg mr-4"
     style={{
       height: "40px",
       width: "250px",

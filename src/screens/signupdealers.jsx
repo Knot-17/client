@@ -55,7 +55,7 @@ const submitData   = () =>{
   const payload = {
     "dealers":dealersData,
     "services":services,
-    "district":district,
+    "districts":district,
     "profile":profile
   }
   console.log(payload);

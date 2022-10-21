@@ -20,14 +20,14 @@ function Step03() {
       <h1 className="text-center font-semibold text-[16px] lg:text-[20px] xl:text-[24px] ">Congrats!<br></br>Do you know your venue yet?</h1> <br></br>
      
 <form className="absolute top-[200px] flex flex-col ">
-    <Radio.Group onChange={handleChange} name="place" value={filterdata["place"] || ""}>
+    <Radio.Group  onChange={handleChange} name="place" value={filterdata["place"] || ""}>
       <Space direction="vertical" size="large">
-        <Radio style={{
+        <Radio className="text-lg mr-4" style={{
             fontSize: "17px",
             margin: "0px",
             padding: "2px"
             }} value={true}>Yes,we even booked it.</Radio>
-        <Radio style={{
+        <Radio className="text-lg mr-4" style={{
             fontSize: "17px",
             margin: "0px",
             padding: "2px"

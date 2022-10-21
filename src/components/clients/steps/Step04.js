@@ -40,6 +40,7 @@ function Step04() {
            }}
            name="location"
            value={filterdata["location"] || ""}
+           className="text-lg mr-4"
           />
         </div>
        <div className='mt-8'>    
@@ -47,6 +48,7 @@ function Step04() {
         <Select
           name="season"
           placeholder="Select a Month"
+          className="text-lg mr-4"
           style={{ width:'200px',
           border:'none',
         }}

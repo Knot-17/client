@@ -4,9 +4,12 @@ import { ActiveLink, FormContainer, MutedLink, SignInFormContainer, SignInHead, 
 import Image from './../images/Computer login.gif';
 import axios from 'axios';
 import * as yup from "yup";
+import {useHistory} from 'react-router-dom';
 
 const SignInPage = () => {
-
+  const history = useHistory();
+  const [id,setId] = useState('');
+  const [username,setUsername] = useState('');
   const [error , setError] = useState(null);
 
   const validationSchema = yup.object({
@@ -22,7 +25,23 @@ const SignInPage = () => {
     });
 
     if(response.status === 200){
-      alert('Authenticated');
+      if(response.data.user === "client" ){
+      setUsername(response.data.username);
+      setId(response.data.id);
+      localStorage.setItem('username',response.data.username);
+      localStorage.setItem('id',response.data.id);
+      alert('Authenticated User');
+      history.push('/form');
+      }
+      else if (response.data.user === "dealer"){
+        setUsername(response.data.username);
+        setId(response.data.id);
+        localStorage.setItem('username',response.data.username);
+        localStorage.setItem('id',response.data.id);
+        localStorage.setItem('services',response.data.service);
+        alert('Authenticated Dealer');
+      window.location.replace('http://localhost:3001');
+      }
     }
   }
 

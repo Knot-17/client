@@ -1,22 +1,43 @@
-import React from 'react'
+import React ,{useEffect} from 'react'
 import { Form, FormContainer, InputBox, InputContainerDouble, Label , Input, InputContainerLeft, ButtonContainer, ButtonElement, Select } from '../profileElements'
+import axios from 'axios' ;
+import { useState } from 'react';
 
 const UserDetails = () => {
+  const [user , setUser] = useState('');
+  const [updateUser,setUpdateUser] = useState('');
+  useEffect(() =>{
+    console.log('useEffect');
+    axios.get(`http://localhost:5000/api/v1/getaUser/${localStorage.getItem('id')}`)
+        .then((res) => {
+          setUser(res.data[0]);
+            console.log(res.data);
+        }).catch((err) => {
+            console.log(err);
+            });},[]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUpdateUser({ ...updateUser, [name]: value });
+  }
+  console.log(updateUser);
+
   return (
    <>
     <FormContainer>
+      {/* {user.map((users) => ( */}
       <Form>
         <InputContainerDouble>
         <InputContainerLeft>
           <Label> First Name </Label>
             <InputBox>
-              <Input/>
+              <Input  name="firstname"  onChange={handleChange} defaultValue={user.firstname}  />
             </InputBox>
           </InputContainerLeft>
           <InputContainerLeft>
           <Label> Last Name </Label>
             <InputBox>
-              <Input/>
+              <Input name="lastname"  onChange={handleChange} defaultValue={user.lastname}/>
             </InputBox>
           </InputContainerLeft>
         </InputContainerDouble>
@@ -24,13 +45,13 @@ const UserDetails = () => {
         <InputContainerLeft>
           <Label> Email </Label>
             <InputBox>
-              <Input />
+              <Input name="email"  onChange={handleChange} defaultValue={user.email} />
             </InputBox>
           </InputContainerLeft>
           <InputContainerLeft>
           <Label> Date of Birth</Label>
             <InputBox>
-              <Input/>
+              <Input name="dob"  onChange={handleChange} defaultValue={user.dob} />
             </InputBox>
           </InputContainerLeft>
         </InputContainerDouble>
@@ -38,10 +59,10 @@ const UserDetails = () => {
         <InputContainerLeft>
           <Label> Gender </Label>
             <InputBox>
-              <Select>
+              <Select name="gender"  onChange={handleChange} defaultValue={user.gender}>
               <option value="" disabled selected hidden>Gender</option>
-              <option value="">Female</option>
-              <option value="">Male</option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
               <option value="">Others</option>
               </Select>
             </InputBox>
@@ -49,7 +70,7 @@ const UserDetails = () => {
           <InputContainerLeft>
           <Label> Mobile </Label>
             <InputBox>
-              <Input/>
+              <Input name="mobile"  onChange={handleChange} defaultValue={user.mobile} />
             </InputBox>
           </InputContainerLeft>
         </InputContainerDouble>
@@ -57,13 +78,13 @@ const UserDetails = () => {
         <InputContainerLeft>
           <Label> Address </Label>
             <InputBox>
-              <Input/>
+              <Input name="address"  onChange={handleChange} defaultValue={user.address} />
             </InputBox>
           </InputContainerLeft>
           <InputContainerLeft>
           <Label> City </Label>
             <InputBox>
-              <Input/>
+              <Input name="city"  onChange={handleChange} defaultValue={user.city} />
             </InputBox>
           </InputContainerLeft>
         </InputContainerDouble>
@@ -73,6 +94,7 @@ const UserDetails = () => {
           </ButtonElement>
         </ButtonContainer>
       </Form>
+      {/* ))} */}
     </FormContainer>
    </>
   )

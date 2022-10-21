@@ -8,7 +8,7 @@ const InfoSection = ({lightBg,id,imgStart,topLine,lightText,headLine,darkText,de
   const history = useHistory();
 
   const navigateToSignup = () => {
-    history.push('/signup')
+    history.push('/signupas')
 }
   return (
       <>

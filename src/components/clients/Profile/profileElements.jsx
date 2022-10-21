@@ -175,6 +175,7 @@ export const Input = styled.input`
     width: 100%;
     height: 2.5rem;
     color: rgb(34, 32, 32);
+    
 `
 
 export const Select = styled.select`

@@ -21,7 +21,7 @@ function Step01() {
       
 <form className="absolute top-[40%] flex flex-col">
   <div>
-    <label className="text-[14px] lg:text-[18px] xl:text-[20px]">My name is </label>
+    <label className="text-lg mr-4">My name is </label>
     <Input
     style={{ width:'200px',
             border:'none',
@@ -32,7 +32,8 @@ function Step01() {
       value={filterdata["firstname"] || ""}
       name="firstname"
       
-    type="text" className=" border-b-2 border-slate-300  placeholder:italic placeholder:text-center placeholder:text-[14px] placeholder:lg:text-[18px] placeholder:xl:text-[20px] mr-2" placeholder="Your first name"/> 
+      
+    type="text" className='text-lg'  placeholder="Your first name"/> 
     <Input
     style={{ width:'200px',
             border:'none',
@@ -43,10 +44,10 @@ function Step01() {
       value={filterdata["lastname"] || ""}
       name="lastname"
       
-    type="text" className="border-b-2 border-slate-300 placeholder:italic placeholder:text-center placeholder:text-[14px] placeholder:lg:text-[18px] placeholder:xl:text-[20px]" placeholder="Your last name"/>
+    type="text" className='text-lg'  placeholder="Your last name"/>
   </div>
   <div className='mt-12'>
-    <label className="text-[14px] lg:text-[18px] xl:text-[20px]">My partner name is </label>
+    <label className="text-lg mr-4">My partner name is </label>
     <Input
     style={{ width:'200px',
             border:'none',
@@ -57,7 +58,7 @@ function Step01() {
       value={filterdata["partnerFirstName"] || ""}
       name="partnerFirstName"
       
-    type="text" className="border-b-2 border-slate-300  placeholder:italic placeholder:text-center placeholder:text-[14px] placeholder:lg:text-[18px] placeholder:xl:text-[20px] mr-2 " placeholder="Their first name"/> 
+    type="text" className='text-lg'  placeholder="Their first name"/> 
     <Input
     style={{ width:'200px',
             border:'none',
@@ -68,7 +69,7 @@ function Step01() {
       value={filterdata["partnerLastName"] || ""}
       name="partnerLastName"
       
-    type="text" className="border-b-2 border-slate-300 placeholder:italic placeholder:text-center placeholder:text-[14px] placeholder:lg:text-[18px] placeholder:xl:text-[20px]" placeholder="Their last name"/>
+    type="text" className='text-lg'  placeholder="Their last name"/>
   </div> 
 
 </form>

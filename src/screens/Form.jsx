@@ -21,12 +21,14 @@ function Form () {
   const [filter, setFilter] = useState('');
 
   const submitData   = () =>{
-    setFilter(filter => [...filter , filterdata]);
-    console.log(filterdata);
-    setFilterdata(null);
-    if(filterdata){
+    const clientid = localStorage.getItem('id');
+    const payload = {
+      "filters":filterdata,
+      "ClientID":clientid
+    }
+    if(clientid){
       const response = axios
-      .post("http://localhost:5000/api/v1/filter", filterdata)
+      .post("http://localhost:5000/api/v1/filter", payload)
       .catch((err) => {
         if (err && err.response);
           console.log(err)
