@@ -7,8 +7,8 @@ import Search from './Search';
 import Filter from './Filter';
 import Cardss from './Card';
 
-import caterer from './../../../../images/caterer.jpg'
-import photographer from './../../../../images/photographer.jpg'
+import caterer from './../../../../../images/caterer.jpg'
+import photographer from './../../../../../images/photographer.jpg'
 
 const DestinationPlanners= () => {
   const cities = [

@@ -1,14 +1,14 @@
 import * as React from 'react';
 
-import ClientNavbar from '../../ClientDashNavbar';
+
 import { PContainer, PH1, PH1Container, PH1DropDown } from './DecoratorsElements';
 
 import Search from './Search';
 import Filter from './Filter';
 import Cardss from './Card';
 
-import caterer from './../../../../images/caterer.jpg'
-import photographer from './../../../../images/photographer.jpg'
+import caterer from './../../../../../images/caterer.jpg'
+import photographer from './../../../../../images/photographer.jpg'
 
 const Decorators = () => {
   const cities = [

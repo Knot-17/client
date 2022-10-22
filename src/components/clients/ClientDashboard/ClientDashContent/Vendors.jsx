@@ -2,12 +2,12 @@ import React from 'react';
 
 import { HeroF1Container, ClientHeroLinks, VendorsH1} from './VendorsElements';
 
-import photographer from './../../../images/photographer.jpg'
-import decorator from './../../../images/decorator.webp'
-import destination from './../../../images/destination.jpg'
-import beutician from './../../../images/beutician.jpg'
-import musicband from './../../../images/musicband.jpg'
-import caterer from './../../../images/caterer.jpg'
+import photographer from './../../../../images/photographer.jpg'
+import decorator from './../../../../images/decorator.webp'
+import destination from './../../../../images/destination.jpg'
+import beutician from './../../../../images/beutician.jpg'
+import musicband from './../../../../images/musicband.jpg'
+import caterer from './../../../../images/caterer.jpg'
 
 
 const Vendors = () => {
@@ -23,7 +23,7 @@ const Vendors = () => {
          
         <div className='flex  w-[85%] ml-[8.5%] justify-between '>
 
-          <ClientHeroLinks to='/PhotographersList' >
+          <ClientHeroLinks to='/client/PhotographersList' >
 
             <div className='w-[60%]'>
               <VendorsH1>Photographers</VendorsH1>
@@ -36,7 +36,7 @@ const Vendors = () => {
         
          </ClientHeroLinks>
 
-         <ClientHeroLinks to='/DecoratorsList' >
+         <ClientHeroLinks to='/client/DecoratorsList' >
 
            <div className='w-[60%]'>
             <VendorsH1>Decorators</VendorsH1>
@@ -53,7 +53,7 @@ const Vendors = () => {
 
        <div className='flex w-[85%] ml-[8.5%] justify-between '>
 
-        <ClientHeroLinks to='/DestinationPlannersList' >
+        <ClientHeroLinks to='/client/DestinationPlannersList' >
 
         <div className='w-[60%]'>
           <VendorsH1>Destination <br></br> Planers</VendorsH1>
@@ -67,7 +67,7 @@ const Vendors = () => {
        </ClientHeroLinks>
 
 
-       <ClientHeroLinks to='/BeuticiansList' >
+       <ClientHeroLinks to='/client/beuticians' >
         
        <div className='w-[60%]'>
         <VendorsH1>Beuticians</VendorsH1>
@@ -84,7 +84,7 @@ const Vendors = () => {
 
        <div className='flex w-[85%] ml-[8.5%] justify-between'>
 
-        <ClientHeroLinks to='/MusicBandsList' >
+        <ClientHeroLinks to='/client/MusicBandsList' >
 
         <div className='w-[60%]'>
           <VendorsH1>Music Bands</VendorsH1>
@@ -98,7 +98,7 @@ const Vendors = () => {
        </ClientHeroLinks>
 
 
-       <ClientHeroLinks to='/CaterersList'  >
+       <ClientHeroLinks to='/client/CaterersList'  >
 
        <div className='w-[60%]'>
         <VendorsH1>Caterers</VendorsH1>

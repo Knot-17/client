@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Footer from '../components/Footer';
-import HeroSection from '../components/ClientDashboard/ClientDashHeroSection';
+import Footer from '../components/clients/Footer';
+import HeroSection from '../components/clients/ClientDashboard/ClientDashHeroSection';
 
 
-import ClientNavbar from '../components/ClientDashboard/ClientDashNavbar'
+import ClientNavbar from '../components/clients/ClientDashboard/ClientDashNavbar'
 
 
 

@@ -19,8 +19,7 @@ const Vendors = () => {
         <VLink className=' font-medium'>Your Vendors</VLink>
         <div className='mt-[20px]'>
            
-        
-        <VLink to='/VenReviews' className='flex text-[14px] mt-[10px]'><StarIcon/> Vendor Reviews</VLink> 
+    
 
         </div>
         
@@ -31,12 +30,12 @@ const Vendors = () => {
         <div className='ml-[20px]'>
             <VLink className=' font-medium'>Your Guest & RSPVs</VLink>
         <div className='mt-[20px]'>
-            <VLink to='/PhotographersList' className='flex text-[14px] '>Photographers</VLink>
-            <VLink to='/DecoratorsList' className='flex text-[14px] mt-[10px] '>Decorators</VLink>
-            <VLink to='/DestinationPlannersList' className='flex text-[14px] mt-[10px] '>Destination Planners</VLink>
-            <VLink to='/BeuticiansList' className='flex text-[14px] mt-[10px] '>Beuticians</VLink>
-            <VLink to='/MusicBandsList' className='flex text-[14px] mt-[10px] '>Music Bands</VLink>
-            <VLink to='/CaterersList' className='flex text-[14px] mt-[10px] '>Caterers</VLink>
+            <VLink to='/client/PhotographersList' className='flex text-[14px] '>Photographers</VLink>
+            <VLink to='/client/DecoratorsList' className='flex text-[14px] mt-[10px] '>Decorators</VLink>
+            <VLink to='/client/DestinationPlannersList' className='flex text-[14px] mt-[10px] '>Destination Planners</VLink>
+            <VLink to='/client/beuticians' className='flex text-[14px] mt-[10px] '>Beuticians</VLink>
+            <VLink to='/client/MusicBandsList' className='flex text-[14px] mt-[10px] '>Music Bands</VLink>
+            <VLink to='/client/CaterersList' className='flex text-[14px] mt-[10px] '>Caterers</VLink>
 
         
         </div>
