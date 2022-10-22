@@ -4,9 +4,17 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import Sidebar from './sideBar'
 import Routes_Admin from './Routes/Routes_Admin'
 
+import styled from 'styled-components';
+
+
+const Container =styled.div`
+   
+    
+`
+
 const Dashboard = () => {
   return (
-    <>  
+    <Container>  
         <BrowserRouter>
             <MainContainer>
                 <ContentContainer>
@@ -23,7 +31,7 @@ const Dashboard = () => {
                 </ProfileContainer>
             </MainContainer>
         </BrowserRouter>
-    </>
+    </Container>
   )
 }
 

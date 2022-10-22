@@ -1,5 +1,5 @@
 import React,{ useState } from 'react';
-import useCollapse from "react-collapsed";
+import useCollapse from 'react-collapsed'
 import ChecklistContent from './ChecklistContent';
 import { Checklist, DollarIcon, YourBudget, YourWeddingH1,ArrowDownIcon, ArrowForwardIcon, YourWeddingH1Border, YWLink } from './YourWeddingElements';
 

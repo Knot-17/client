@@ -5,6 +5,11 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 // import { yupResolver } from "@hookform/resolvers";
 
+import styled from 'styled-components';
+
+
+const Container =styled.div`  
+`
 
 const AddDecorators = () => {
   const  [hasInstagram, setHasInstagram] = useState(false);
@@ -14,7 +19,7 @@ const AddDecorators = () => {
 
 
   return (
-    <>
+    <Container>
       <MainContainer>
         <PrimaryContainer>
             <SecondaryContainer>
@@ -139,7 +144,7 @@ const AddDecorators = () => {
             </SecondaryContainer>
         </PrimaryContainer>
       </MainContainer>
-    </>
+    </Container>
   )
 }
 

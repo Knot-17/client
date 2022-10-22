@@ -2,7 +2,6 @@ import React,{ useContext , useState } from 'react';
 import Image from '../../../../images/Personal site.gif';
 import styled from 'styled-components';
 import { StepperContext } from '../context/StepperContext';
-import { useForm } from "react-hook-form";
 
 import {useFormik} from "formik";
 import * as yup from "yup";
@@ -18,14 +17,14 @@ export const Img = styled.img`
 const FieldError = styled.span`
   color: #b32e2e;
   font-size: 11px;
-`;
+`
 
 const FormSuccess = styled.span`
   color: #28a828;
   font-size: 12px;
   min-height: 20px;
   font-weight: 600;
-`;
+`
 
 
 const PASSWORD_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
@@ -47,18 +46,14 @@ export default function PersonalDetails() {
   const {userData,setUserData} = useContext(StepperContext);
   const {success,setSuccess} = useState(null);
 
-  // const {register,handleSubmit,formState:{errors}} = useForm();y
-
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
   };
 
 
-  // const formik = useFormik({initialValues:{firstname:"",lastname:""},
-  // validationSchema:validation,
-  // validateOnBlur:true
-  // })
+ 
 
   return (
     <div className='grid grid-flow-col grid-cols-2'>

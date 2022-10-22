@@ -5,9 +5,17 @@ import Sidebar from './sideBar'
 import Routes from './Routes/Routes'
 import Footer from './../../home/Footer'
 
+import styled from 'styled-components';
+
+const Container =styled.div`
+   
+    
+`
+
+
 const Profile = () => {
   return (
-    <>  <BrowserRouter>
+    <Container>  <BrowserRouter>
             <MainContainer>
                 <ContentContainer>
                         <TitleContainer>
@@ -26,7 +34,7 @@ const Profile = () => {
             </MainContainer>
             <Footer/>
         </BrowserRouter>
-    </>
+    </Container>
   )
 }
 

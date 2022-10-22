@@ -4,6 +4,12 @@ import { BtnWrap, Column1, Column2, Heading, ImgWrap, InfoContainer, InfoRow, In
 
 import {useHistory} from 'react-router-dom';
 
+import styled from 'styled-components';
+
+
+const Container =styled.div`  
+`
+
 const InfoSection = ({lightBg,id,imgStart,topLine,lightText,headLine,darkText,description,buttonLabel,img,alt,primary,dark,dark2}) => {
   const history = useHistory();
 
@@ -11,7 +17,7 @@ const InfoSection = ({lightBg,id,imgStart,topLine,lightText,headLine,darkText,de
     history.push('/signupas')
 }
   return (
-      <>
+      <Container>
         <InfoContainer lightBg={lightBg} id={id}>
           <InfoWrapper>
             <InfoRow imgStart={imgStart} >
@@ -43,7 +49,7 @@ const InfoSection = ({lightBg,id,imgStart,topLine,lightText,headLine,darkText,de
             </InfoRow>
           </InfoWrapper>
         </InfoContainer>
-      </>
+      </Container>
   )
 }
 

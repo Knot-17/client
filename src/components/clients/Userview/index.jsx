@@ -16,9 +16,16 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import StarIcon from '@mui/icons-material/Star';
 import AddIcon from '@mui/icons-material/Add';
 import Music from '../../../images/Music.png'
-
-
 import './icon.css'
+
+import styled from 'styled-components';
+
+
+const Container =styled.div`
+   
+    
+`
+
 
 
 
@@ -29,7 +36,7 @@ const UserView = () => {
       setHover(!hover)
     }
   return (
-    <>
+    <Container>
         <HeroContainer>
             <HeroBg>
                 <VideoBg src={Video} autoPlay loop muted type='video/mp4'/>
@@ -312,7 +319,7 @@ const UserView = () => {
             </Wrapper>
 
         </VendorsContainerWhiteBg>
-    </>
+    </Container>
   )
 }
 

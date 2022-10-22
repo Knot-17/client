@@ -12,6 +12,12 @@ import {useHistory} from 'react-router-dom';
 
 import { Button } from '../../ButtonElements';
 
+import styled from 'styled-components';
+
+
+const Container =styled.div`  
+`
+
 const Services = () => {
     const history = useHistory();
     const [hover,setHover] =useState(false);
@@ -23,7 +29,7 @@ const Services = () => {
         history.push('/user')
     }
   return (
-    <>
+    <Container>
         <ServicesContainer id='services'>
             <ServicesH1> Our Services </ServicesH1>
             <ServicesWrapper>
@@ -60,7 +66,7 @@ const Services = () => {
             </ServicesWrapper>
             <Button onClick={navigateToVendors} to='' onMouseEnter={onHover} onMouseLeave={onHover} primary='true' dark='true' > Explore Services {hover ? <ArrowForward/> : <ArrowRight/>}  </Button>
         </ServicesContainer>
-    </>
+    </Container>
   )
 }
 

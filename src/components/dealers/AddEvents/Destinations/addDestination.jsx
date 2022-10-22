@@ -4,6 +4,11 @@ import Image from '../../../../images/Personal site.gif'
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 
+import styled from 'styled-components';
+
+
+const Container =styled.div`  
+`
 
 const AddDestinations = () => {
   const  [hasInstagram, setHasInstagram] = useState(false);
@@ -11,7 +16,7 @@ const AddDestinations = () => {
   const  [hasFacebook, setHasFacebook] = useState(false);
   const handleClickFacebook = () => setHasFacebook(!hasFacebook)
   return (
-    <>
+    <Container>
       <MainContainer>
         <PrimaryContainer>
             <SecondaryContainer>
@@ -141,7 +146,7 @@ const AddDestinations = () => {
             </SecondaryContainer>
         </PrimaryContainer>
       </MainContainer>
-    </>
+    </Container>
   )
 }
 

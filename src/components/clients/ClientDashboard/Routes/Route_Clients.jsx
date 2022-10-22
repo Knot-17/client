@@ -1,11 +1,11 @@
 import React from "react";
 
-import BeuticiansList from "../pages/Beuticians";
-import PhotographersList from "../pages/PhotographersList";
-import CaterersList from "../pages/CaterersList";
-import DacoratorsList from "../pages/DecoratorsList";
-import DestinationPlannersList from "../pages/DestinationPlannersList";
-import MusicBandsList from "../pages/MusicBandsList";
+import BeuticiansList from "./../Pages/Beuticians";
+import PhotographersList from "./../Pages/PhotographersList";
+import CaterersList from "./../Pages/CaterersList";
+import DacoratorsList from "./../Pages/DecoratorsList";
+import DestinationPlannersList from "./../Pages/DestinationPlannersList";
+import MusicBandsList from "./../Pages/MusicBandsList";
 
 
 export default[

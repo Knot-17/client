@@ -6,9 +6,14 @@ import Dealer from '../../../images/Dealer.png'
 
 import { Link } from 'react-router-dom'
 
+import styled from 'styled-components';
+
+
+const Container =styled.div`  
+`
 const SignUpSelection = () => {
   return (
-    <>
+    <Container>
         <SignUpSelectionWrapper>
             <SignUpSelectionContainer>
                 <SignUpLeftContainer>
@@ -23,7 +28,7 @@ const SignUpSelection = () => {
                 </SignUpRightContainer>
             </SignUpSelectionContainer>
         </SignUpSelectionWrapper>
-    </>
+    </Container>
   )
 }
 

@@ -5,6 +5,11 @@ import Checkbox from '@mui/material/Checkbox';
 import { useState ,useEffect } from 'react';
 import axios from 'axios';
 
+import styled from 'styled-components';
+
+
+const Container =styled.div`  
+`
 const WeddingDetails = () => {
   const [filter , setFilter] = useState('');
 
@@ -18,7 +23,7 @@ const WeddingDetails = () => {
             });},[]);
 
   return (
-   <>
+   <Container>
     <FormContainer>
       <Form>
         <InputContainerDouble>
@@ -193,7 +198,7 @@ const WeddingDetails = () => {
       </Form>
     </FormContainer>
 
-   </>
+   </Container>
   )
 }
 

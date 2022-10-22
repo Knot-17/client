@@ -7,13 +7,18 @@ import Vendors from '../ClientDashContent/Vendors';
 import YourWedding from '../ClientDashContent/YourWedding';
 
 
+import styled from 'styled-components';
+
+
+const Container =styled.div`  
+`
 const HeroSection = () => {
 
   const [isExpanded, setExpanded] = useState(true)
     const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded }); 
  
   return (
-    <>
+    <Container>
         <HeroContainer1>
           <HeroH2Container>
             <HeroH2>Welcome back, You & Yours!</HeroH2>
@@ -40,7 +45,7 @@ const HeroSection = () => {
         <HeroContainer2>
           <YourWedding/>
         </HeroContainer2>
-    </>
+    </Container>
   )
 }
 

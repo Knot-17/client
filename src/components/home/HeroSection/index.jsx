@@ -4,6 +4,15 @@ import Video from '../../../videos/wedding.mp4';
 import { Button } from '../../ButtonElements';
 
 
+import styled from 'styled-components';
+
+
+const Container =styled.div`
+   
+    
+`
+
+
 const HeroSection = () => {
   const [hover,setHover] =useState(false);
 
@@ -11,7 +20,7 @@ const HeroSection = () => {
     setHover(!hover)
   }
   return (
-    <>
+    <Container>
         <HeroContainer>
           <HeroBg>
             <VideoBg src={Video} autoPlay loop muted type='video/mp4'/>
@@ -26,7 +35,7 @@ const HeroSection = () => {
             </HeroButtonWrapper>
           </HeroContent>
         </HeroContainer>
-    </>
+    </Container>
   )
 }
 

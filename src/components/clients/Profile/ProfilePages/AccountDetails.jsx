@@ -3,6 +3,11 @@ import { Form, FormContainer, InputBox, ButtonElementEdit, Label , Input, InputC
 import axios from 'axios' ;
 
 
+import styled from 'styled-components';
+
+
+const Container =styled.div`  
+`
 
 const AccountDetails = () => {
   const [user , setUser] = useState('');
@@ -20,7 +25,7 @@ const AccountDetails = () => {
   const  [editEmail, setEditEmail] = useState(false);
   const handleClickEdit= () => setEditEmail(!editEmail) 
   return (
-   <>
+   <Container>
     <FormContainer>
       <Form>
         <SubTitle> Update your email </SubTitle>
@@ -81,7 +86,7 @@ const AccountDetails = () => {
       </Form>
     </FormContainer>
 
-   </>
+   </Container>
   )
 }
 

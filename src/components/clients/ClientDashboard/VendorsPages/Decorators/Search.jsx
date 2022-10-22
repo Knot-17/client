@@ -150,7 +150,7 @@ setIsDropDownVisible(false);
             
                    </DropDownContainer> 
                     
-                   ) : <></>
+                   ) : null
               }
                 
             </CategoryWrapper>

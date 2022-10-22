@@ -3,6 +3,13 @@ import { Form, FormContainer, InputBox, InputContainerDouble, Label , Input, Inp
 import axios from 'axios' ;
 import { useState } from 'react';
 
+import styled from 'styled-components';
+
+
+const Container =styled.div`  
+`
+
+
 const UserDetails = () => {
   const [user , setUser] = useState('');
   const [updateUser,setUpdateUser] = useState('');
@@ -22,7 +29,7 @@ const UserDetails = () => {
   console.log(updateUser);
 
   return (
-   <>
+   <Container>
     <FormContainer>
       {/* {user.map((users) => ( */}
       <Form>
@@ -94,7 +101,7 @@ const UserDetails = () => {
       </Form>
       {/* ))} */}
     </FormContainer>
-   </>
+   </Container>
   )
 }
 

@@ -6,6 +6,11 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 // import { yupResolver } from "@hookform/resolvers";
 
 
+import styled from 'styled-components';
+
+
+const Container =styled.div`  
+`
 const AddMusicbands = () => {
   const  [hasInstagram, setHasInstagram] = useState(false);
   const handleClickInstagram = () => setHasInstagram(!hasInstagram) 
@@ -14,7 +19,7 @@ const AddMusicbands = () => {
 
 
   return (
-    <>
+    <Container>
       <MainContainer>
         <PrimaryContainer>
             <SecondaryContainer>
@@ -139,7 +144,7 @@ const AddMusicbands = () => {
             </SecondaryContainer>
         </PrimaryContainer>
       </MainContainer>
-    </>
+    </Container>
   )
 }
 
