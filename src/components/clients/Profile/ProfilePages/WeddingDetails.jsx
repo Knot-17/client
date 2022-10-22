@@ -2,9 +2,21 @@ import React from 'react'
 import { Form, FormContainer, InputBox, InputContainerDouble, Label , Input, InputContainerLeft, ButtonContainer, ButtonElement, SubTitle, Select, InputContainerCheckbox, CheckboxContainer } from '../profileElements'
 import { green } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';
-
+import { useState ,useEffect } from 'react';
+import axios from 'axios';
 
 const WeddingDetails = () => {
+  const [filter , setFilter] = useState('');
+
+  useEffect(() =>{
+    axios.get(`http://localhost:5000/api/v1/filter/${localStorage.getItem('id')}`)
+        .then((res) => {
+          setFilter(res.data[0]);
+            console.log(res.data);
+        }).catch((err) => {
+            console.log(err);
+            });},[]);
+
   return (
    <>
     <FormContainer>
@@ -13,13 +25,13 @@ const WeddingDetails = () => {
         <InputContainerLeft>
           <Label> Wedding Date </Label>
             <InputBox>
-              <Input/>
+              <Input name="weddingdate" defaultValue={filter.date}  />
             </InputBox>
           </InputContainerLeft>
           <InputContainerLeft>
           <Label> Wedding Place </Label>
             <InputBox>
-              <Input/>
+              <Input name="location" defaultValue={filter.location} />
             </InputBox>
           </InputContainerLeft>
         </InputContainerDouble>
@@ -27,27 +39,27 @@ const WeddingDetails = () => {
         <InputContainerLeft>
           <Label> No of Guests </Label>
             <InputBox>
-              <Select>
-              <option value="" disabled selected hidden>Estimated guest count</option>
-              <option value="">0-100</option>
-              <option value="">100-250</option>
-              <option value="">250-500</option>
-              <option value="">500-1000</option>
-              <option value="">1000 +</option>
+              <Select name='guestcount' defaultValue={filter.guestcount}>
+                <option value="" disabled  hidden>Estimated guest count</option>
+                <option value="1">0 - 50</option>
+                <option value="2">50 - 150</option>
+                <option value="3">150 - 300 </option>
+                <option value="4">300 - 500</option>
+                <option value="5">500 +</option>
               </Select>
             </InputBox>
           </InputContainerLeft>
           <InputContainerLeft>
           <Label> Wedding Budget</Label>
             <InputBox>
-              <Select>
-                <option  value="" disabled selected hidden>Budget range</option>
-                <option  value="" >500000 Rs - 600000 Rs</option>
-                <option  value="" >600000 Rs - 1000000 Rs</option>
-                <option  value="" >1000000 Rs - 1500000 Rs</option>
-                <option  value="" >1500000 Rs - 2000000 Rs</option>
+              <Select name='budget' defaultValue={filter.budget} >
+                <option  value="" disabled  hidden>Budget range</option>
+                <option value="1">Below 100000 Rs</option>
+                <option value="2">100000 - 150000 Rs</option>
+                <option value="3">150000 - 300000 Rs</option>
+                <option value="4">Above 300000 Rs</option>
               </Select>
-            </InputBox>
+              </InputBox>
           </InputContainerLeft>
         </InputContainerDouble>
         <SubTitle> Desired venue type </SubTitle>

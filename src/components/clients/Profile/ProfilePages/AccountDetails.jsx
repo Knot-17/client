@@ -1,10 +1,22 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import { Form, FormContainer, InputBox, ButtonElementEdit, Label , Input, InputContainerLeft, ButtonContainer, ButtonElement, Select, SubTitle, InputContainerSingle, Margin } from '../profileElements'
-
+import axios from 'axios' ;
 
 
 
 const AccountDetails = () => {
+  const [user , setUser] = useState('');
+
+
+  useEffect(() =>{
+    axios.get(`http://localhost:5000/api/v1/getaUser/${localStorage.getItem('id')}`)
+        .then((res) => {
+          setUser(res.data[0]);
+            console.log(res.data);
+        }).catch((err) => {
+            console.log(err);
+            });},[]);
+
   const  [editEmail, setEditEmail] = useState(false);
   const handleClickEdit= () => setEditEmail(!editEmail) 
   return (
@@ -16,7 +28,7 @@ const AccountDetails = () => {
           <InputContainerLeft>
             <Label> Email </Label>
               <InputBox>
-                <Input value="ninthu1999@gmail.com" />
+                <Input defaultValue={user.email} />
               </InputBox>
           </InputContainerLeft>
          

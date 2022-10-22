@@ -7,7 +7,6 @@ const UserDetails = () => {
   const [user , setUser] = useState('');
   const [updateUser,setUpdateUser] = useState('');
   useEffect(() =>{
-    console.log('useEffect');
     axios.get(`http://localhost:5000/api/v1/getaUser/${localStorage.getItem('id')}`)
         .then((res) => {
           setUser(res.data[0]);
@@ -59,11 +58,10 @@ const UserDetails = () => {
         <InputContainerLeft>
           <Label> Gender </Label>
             <InputBox>
-              <Select name="gender"  onChange={handleChange} defaultValue={user.gender}>
-              <option value="" disabled selected hidden>Gender</option>
+              <Select name="gender"  onChange={handleChange} value={user.gender}>
+              <option value="" disabled  hidden>Gender</option>
               <option value="female">Female</option>
               <option value="male">Male</option>
-              <option value="">Others</option>
               </Select>
             </InputBox>
           </InputContainerLeft>

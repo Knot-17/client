@@ -11,7 +11,7 @@ function Step05() {
   const {filterdata,setFilterdata} = useContext(FilterContext);
 
   const handleChangeGuestCount = (value) => {
-    setFilterdata ({ ...filterdata, "season": value });
+    setFilterdata ({ ...filterdata, "guestcount": value });
     console.log(value);
   };
 
@@ -31,7 +31,7 @@ function Step05() {
        <div>
           <label className="text-[14px] lg:text-[18px] xl:text-[20px]">Estimated Guest count </label>
           <Select 
-            name="year"
+            name="guestcount"
             placeholder="Select Guest count"
             style={{ width:'200px',
             border:'none',
