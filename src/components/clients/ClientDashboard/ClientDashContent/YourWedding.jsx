@@ -2,9 +2,9 @@ import React,{ useState } from 'react';
 import useCollapse from "react-collapsed";
 import ChecklistContent from './ChecklistContent';
 import { Checklist, DollarIcon, YourBudget, YourWeddingH1,ArrowDownIcon, ArrowForwardIcon, YourWeddingH1Border, YWLink } from './YourWeddingElements';
-import budget from './../../../images/budget.png'
-import Wed from './../../../images/Wed.jpg'
-import rsvp from './../../../images/rsvp.png'
+
+import Wed from './../../../../images/Wed.jpg'
+
 
 
 const YourWedding = () => {
