@@ -10,6 +10,7 @@ const SignInPage = () => {
   const history = useHistory();
   const [id,setId] = useState('');
   const [username,setUsername] = useState('');
+  const [service , setService] = useState('');
   const [error , setError] = useState(null);
 
   const validationSchema = yup.object({
@@ -34,13 +35,25 @@ const SignInPage = () => {
       history.push('/form');
       }
       else if (response.data.user === "dealer"){
-        setUsername(response.data.username);
-        setId(response.data.id);
+        const payload = {
+          "username":response.data.username,
+          "id":response.data.id,
+          "service":response.data.service
+        }
+        console.log(payload);
         localStorage.setItem('username',response.data.username);
         localStorage.setItem('id',response.data.id);
         localStorage.setItem('services',response.data.service);
         alert('Authenticated Dealer');
-      window.location.replace('http://localhost:3001');
+        const addTemp = axios
+        .post("http://localhost:5000/api/v1/dealersLogin", payload)
+        .catch((err) => {
+          if (err && err.response);
+            console.log(err)
+        });
+        if(addTemp){
+        window.location.replace('http://localhost:3001');
+        }
       }
     }
   }
