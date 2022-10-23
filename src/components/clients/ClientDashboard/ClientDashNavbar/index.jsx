@@ -80,7 +80,7 @@ const ClientNavbar = ({toggle}) => {
         </div>
          
           <NavButton>
-            <NavButtonLink >Your Account</NavButtonLink>
+            <NavButtonLink to={'/user/profile'} >{`${localStorage.getItem('username')}`}</NavButtonLink>
           </NavButton>
          
       </NavbarContainer>

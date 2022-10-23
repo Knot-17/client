@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { FilterContext } from '../components/clients/steps/context/FilterContext';
 import axios from "axios";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import {useHistory} from 'react-router-dom';
+
 
 import Step01 from '../components/clients/steps/Step01';
 import Step02 from '../components/clients/steps/Step02';
@@ -19,6 +21,7 @@ function Form () {
   const [step, setStep] = useState(0); 
   const [filterdata, setFilterdata] = useState('');
   const [filter, setFilter] = useState('');
+  const history = useHistory();
 
   const submitData   = () =>{
     const clientid = localStorage.getItem('id');
@@ -33,6 +36,16 @@ function Form () {
         if (err && err.response);
           console.log(err)
       });
+
+      if(response){
+        Swal.fire({
+          title: 'Success!',
+          text: 'Your data has been saved',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        })
+        history.push('/clientdash');
+      }
     }
     else {
       Swal.fire({
