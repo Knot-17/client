@@ -58,6 +58,7 @@ export const NavItem = styled.li`
 export const NavButton = styled.nav`
   display: flex;
   align-items: center;
+  justify-content: center;
 `;
 
 export const NavButtonLink = styled(LinkR)`
@@ -72,6 +73,7 @@ export const NavButtonLink = styled(LinkR)`
   cursor: pointer;
   transition: all 02s ease-in-out;
   text-decoration: none;
+  margin-right: 20px;
 
   &:hover {
     transition: all 0.2 ease-in-out;
@@ -81,5 +83,24 @@ export const NavButtonLink = styled(LinkR)`
   @media screen and (max-width: 480px) {
     font-size: 10px;
     padding: 10px 11px;
+  }
+`;
+
+export const Logout = styled(LinkR)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #01bf71;
+  height: 50px;
+  width: 50px;
+  border: 1px solid #01bf71;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: all 02s ease-in-out;
+  &:hover {
+    transition: all 0.2 ease-in-out;
+    background: #fff;
+    color: #010606;
   }
 `;

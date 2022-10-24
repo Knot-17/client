@@ -9,8 +9,6 @@ const BeuticiansList = () => {
     <div>
       <ClientNavbar />
       <Beuticians />
-
-      {/* <Footer/> */}
     </div>
   );
 };

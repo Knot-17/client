@@ -60,6 +60,9 @@ const SignInPage = () => {
             console.log(err);
           });
       } else if (response.data.user === "dealer") {
+        localStorage.setItem("dusername", response.data.username);
+        localStorage.setItem("did", response.data.id);
+        localStorage.setItem("dservice", response.data.service);
         const payload = {
           username: response.data.username,
           id: response.data.id,

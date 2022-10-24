@@ -1,5 +1,6 @@
 import * as React from "react";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 import ClientNavbar from "../../ClientDashNavbar";
 import {
   PContainer,
@@ -7,7 +8,7 @@ import {
   PH1Container,
   PH1DropDown,
 } from "./BeuticiansElements";
-import { Card, List } from "antd";
+
 import Search from "./Search";
 import Filter from "./Filter";
 import Cardss from "./Card";
@@ -34,13 +35,27 @@ const Beuticians = () => {
     "Anuradhapura",
   ];
 
+  const [filter, setFilter] = useState("");
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/api/v1/filter/${localStorage.getItem("id")}`)
+      .then((res) => {
+        setFilter(res.data[0]);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <PContainer>
       <PH1Container>
         <div className="  xs:hidden">
           <Search options={cities} />
         </div>
-        <PH1>(Count) Bauticians in (City)</PH1>
+        <PH1>(Beautician count) Bauticians in ({filter.location})</PH1>
         <div className="flex ">
           {/* <Category/>
           <Locations options={cities}/> */}
@@ -55,19 +70,7 @@ const Beuticians = () => {
       </div>
 
       <div className="mt-[50px]">
-        <List
-          grid={{
-            gutter: 16,
-            column: 4,
-          }}
-          renderItem={(item) => (
-            <List.Item>
-              <Card title={item.title}>Card content</Card>
-            </List.Item>
-          )}
-        />
-
-        <ul className="w-[85%] md:flex md:justify-between ml-[8.5%]">
+        <ul className=" w-[85%] md:flex md:justify-between ml-[8.5%]">
           <li>
             <Cardss AvailableArea="Available Area" VendorPic={photographer} />
           </li>
