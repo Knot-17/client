@@ -52,7 +52,7 @@ const AddDestinations = () => {
     convert2base64(data.image1[0]);
     convert2base64(data.image2[0]);
     const response = axios
-      .post("http://localhost:5000/api/v1/dealersAds", data)
+      .post("http://localhost:5000/api/v1/destinationAds", data)
       .then((res) => {
         console.log(res);
         Swal.fire({

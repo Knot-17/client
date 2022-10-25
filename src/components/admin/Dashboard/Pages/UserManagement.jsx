@@ -1,16 +1,14 @@
-import React,{useEffect,useState,useRef} from 'react';
-import axios from 'axios';
+import React, { useEffect, useState, useRef } from "react";
+import axios from "axios";
 
+import { SearchOutlined } from "@ant-design/icons";
+import { Button, Input, Space, Table } from "antd";
 
-import { SearchOutlined } from '@ant-design/icons';
-import { Button, Input, Space, Table } from 'antd';
-
-import Highlighter from 'react-highlight-words';
-
+import Highlighter from "react-highlight-words";
 
 const UserManagement = () => {
-  const [searchText, setSearchText] = useState('');
-  const [searchedColumn, setSearchedColumn] = useState('');
+  const [searchText, setSearchText] = useState("");
+  const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
@@ -19,10 +17,15 @@ const UserManagement = () => {
   };
   const handleReset = (clearFilters) => {
     clearFilters();
-    setSearchText('');
+    setSearchText("");
   };
   const getColumnSearchProps = (dataIndex) => ({
-    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
+    filterDropdown: ({
+      setSelectedKeys,
+      selectedKeys,
+      confirm,
+      clearFilters,
+    }) => (
       <div
         style={{
           padding: 8,
@@ -32,11 +35,13 @@ const UserManagement = () => {
           ref={searchInput}
           placeholder={`Search ${dataIndex}`}
           value={selectedKeys[0]}
-          onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+          onChange={(e) =>
+            setSelectedKeys(e.target.value ? [e.target.value] : [])
+          }
           onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
           style={{
             marginBottom: 8,
-            display: 'block',
+            display: "block",
           }}
         />
         <Space>
@@ -47,7 +52,7 @@ const UserManagement = () => {
             size="small"
             style={{
               width: 90,
-              backgroundColor: '#1E90FF',
+              backgroundColor: "#1E90FF",
             }}
           >
             Search
@@ -80,7 +85,7 @@ const UserManagement = () => {
     filterIcon: (filtered) => (
       <SearchOutlined
         style={{
-          color: filtered ? '#1890ff' : undefined,
+          color: filtered ? "#1890ff" : undefined,
         }}
       />
     ),
@@ -95,95 +100,94 @@ const UserManagement = () => {
       searchedColumn === dataIndex ? (
         <Highlighter
           highlightStyle={{
-            backgroundColor: '#ffc069',
+            backgroundColor: "#ffc069",
             padding: 0,
           }}
           searchWords={[searchText]}
           autoEscape
-          textToHighlight={text ? text.toString() : ''}
+          textToHighlight={text ? text.toString() : ""}
         />
       ) : (
         text
       ),
   });
-    const [users,setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
 
+  useEffect(() => {
+    console.log("useEffect");
+    axios
+      .get("http://localhost:5000/api/v1/getUser")
+      .then((res) => {
+        setUsers(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
-  useEffect(() =>{
-    console.log('useEffect');
-    axios.get("http://localhost:5000/api/v1/getUser")
-        .then((res) => {
-          setUsers(res.data);
-            console.log(res.data);
-        }).catch((err) => {
-            console.log(err);
-            });},[]);
-
-
-const columns = [
-{
-    title: 'First Name',
-    dataIndex: 'firstname',
-    key: 'firstname',
-    render: (text) => <a>{text}</a>,
-    ...getColumnSearchProps('firstname')
-},
-{
-    title: 'Last Name',
-    dataIndex: 'lastname',
-    key: 'lastname',
-    render: (text) => <a>{text}</a>,
-    ...getColumnSearchProps('lastname')
-
+  const columns = [
+    {
+      title: "First Name",
+      dataIndex: "firstname",
+      key: "firstname",
+      render: (text) => <a>{text}</a>,
+      ...getColumnSearchProps("firstname"),
     },
-{
-    title: 'Email',
-    dataIndex: 'email',
-    key: 'email',
-    ...getColumnSearchProps('email')
-
-},
-{
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
-    ...getColumnSearchProps('address')
-
-},
-{
-    title: 'City',
-    dataIndex: 'city',
-    key: 'city',
-    ...getColumnSearchProps('city')
-
-},
-{
-    title: 'Edit',
-    key: 'edit',
-    render: (_, record) => (
-        <Space size="middle">
-        <button className='bg-blue-700 text-center rounded-md p-2 text-sm text-white text w-20'>Edit</button>
-        </Space>
-    ),
-},
-{
-    title: 'Delete',
-    key: 'Delete',
-    render: (_, record) => (
-        <Space size="middle">
-        <button className='bg-red-700 text-center rounded-md p-2 text-sm text-white w-20'>Delete</button>
-        </Space>
-    ),
+    {
+      title: "Last Name",
+      dataIndex: "lastname",
+      key: "lastname",
+      render: (text) => <a>{text}</a>,
+      ...getColumnSearchProps("lastname"),
     },
-    
-];
-            
+    {
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
+      ...getColumnSearchProps("email"),
+    },
+    {
+      title: "Address",
+      dataIndex: "address",
+      key: "address",
+      ...getColumnSearchProps("address"),
+    },
+    {
+      title: "City",
+      dataIndex: "city",
+      key: "city",
+      ...getColumnSearchProps("city"),
+    },
+    {
+      title: "Edit",
+      key: "edit",
+      render: (_, record) => (
+        <Space size="middle">
+          <button className="bg-blue-700 text-center rounded-md p-2 text-sm text-white text w-20">
+            Edit
+          </button>
+        </Space>
+      ),
+    },
+    {
+      title: "Delete",
+      key: "Delete",
+      render: (_, record) => (
+        <Space size="middle">
+          <button className="bg-red-700 text-center rounded-md p-2 text-sm text-white w-20">
+            Delete
+          </button>
+        </Space>
+      ),
+    },
+  ];
 
-return (
-<div className='mr-4 mt-4'>
-<Table columns={columns} dataSource={users} />
-</div>
-  )
-}
+  return (
+    <div className="mr-4 mt-4">
+      <Table columns={columns} dataSource={users} />
+    </div>
+  );
+};
 
-export default UserManagement
+export default UserManagement;
