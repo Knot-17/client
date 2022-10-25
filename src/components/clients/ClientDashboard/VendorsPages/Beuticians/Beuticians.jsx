@@ -1,22 +1,16 @@
-import * as React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import ClientNavbar from "../../ClientDashNavbar";
-import {
-  PContainer,
-  PH1,
-  PH1Container,
-  PH1DropDown,
-} from "./BeuticiansElements";
+import * as React from 'react';
 
-import Search from "./Search";
-import Filter from "./Filter";
-import Cardss from "./Card";
+import ClientNavbar from '../../ClientDashNavbar';
+import { PContainer, PH1, PH1Container, PH1DropDown } from './BeuticiansElements';
 
-import caterer from "./../../../../../images/caterer.jpg";
-import photographer from "./../../../../../images/photographer.jpg";
+import Search from './Search';
+import Filter from './Filter';
+import Cardss from './Card';
 
-const Beuticians = () => {
+import caterer from './../../../../../images/caterer.jpg'
+import photographer from './../../../../../images/photographer.jpg'
+
+const Beuticians= () => {
   const cities = [
     "Colombo",
     "Dehiwala",
@@ -32,61 +26,53 @@ const Beuticians = () => {
     "Jaffna",
     "Katunayake",
     "Kolonnawa",
-    "Anuradhapura",
-  ];
+    "Anuradhapura"
+]
 
-  const [filter, setFilter] = useState("");
+ 
+    return (
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:5000/api/v1/filter/${localStorage.getItem("id")}`)
-      .then((res) => {
-        setFilter(res.data[0]);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+      <PContainer>
 
-  return (
-    <PContainer>
-      <PH1Container>
-        <div className="  xs:hidden">
-          <Search options={cities} />
+     <PH1Container> 
+     <div className='  xs:hidden'>
+  <Search options={cities}/>
         </div>
-        <PH1>(Beautician count) Bauticians in ({filter.location})</PH1>
-        <div className="flex ">
+          <PH1>(Count) Bauticians in (City)</PH1>
+          <div className='flex '>
           {/* <Category/>
           <Locations options={cities}/> */}
-          <div className="hidden xs:block">
-            <Search options={cities} />
+          <div className='hidden xs:block'>
+            <Search options={cities}/>
           </div>
+          
+          </div>
+         
+          
+        </PH1Container>
+        
+        <div className='mt-[10px]'>
+        <Filter/>
         </div>
-      </PH1Container>
+        
+        <div className='mt-[50px]'>
 
-      <div className="mt-[10px]">
-        <Filter />
-      </div>
+         
 
-      <div className="mt-[50px]">
-        <ul className=" w-[85%] md:flex md:justify-between ml-[8.5%]">
-          <li>
-            <Cardss AvailableArea="Available Area" VendorPic={photographer} />
-          </li>
-          <li>
-            <Cardss AvailableArea="Available Area" VendorPic={caterer} />
-          </li>
-          <li>
-            <Cardss AvailableArea="Available Area" VendorPic={photographer} />
-          </li>
-          <li>
-            <Cardss AvailableArea="Available Area" VendorPic={caterer} />
-          </li>
-        </ul>
-      </div>
-    </PContainer>
-  );
-};
+          <ul className='w-[85%] md:flex md:justify-between ml-[8.5%]'>
+            <li><Cardss AvailableArea="Available Area" VendorPic={photographer} /></li>
+            <li><Cardss AvailableArea="Available Area" VendorPic={caterer} /></li>
+             <li><Cardss AvailableArea="Available Area" VendorPic={photographer} /></li>
+             <li><Cardss AvailableArea="Available Area" VendorPic={caterer} /></li>
+          </ul>
+  
+       
+        </div>
+        
+      </PContainer>
+      
+    
+    );
+}
 
 export default Beuticians;
