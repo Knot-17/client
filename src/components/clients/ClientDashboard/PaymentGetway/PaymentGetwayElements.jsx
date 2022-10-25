@@ -1,25 +1,22 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    overflow: auto;
+    
     width: 100%;
     height: 100%;
-    background-color: rgb(0 0 0 / 0.4);
+    
 `
 
 export const Container = styled.div`
     width: 700px;
     height:450px;
     background-color: #fff;
-    padding-top: 5px;
+    padding-top: 25px;
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 100px;
+    
     
 `
 export const CheckBox = styled.div`

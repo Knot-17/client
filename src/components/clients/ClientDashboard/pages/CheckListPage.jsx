@@ -1,15 +1,15 @@
 import React from 'react';
+import CheckList from '../CheckList/CheckList';
 import ClientNavbar from '../ClientDashNavbar'
 
-import Beuticians from '../VendorsPages/Beuticians/Beuticians';
-import Footer from '../../Footer';
 
-const BeuticiansList = () => {
+
+const CheckListPage = () => {
     return (
        <div>
         
         <ClientNavbar />
-        <Beuticians/>
+       <CheckList/>
         
         
         {/* <Footer/> */}
@@ -18,4 +18,4 @@ const BeuticiansList = () => {
     );
 }
 
-export default BeuticiansList;
+export default CheckListPage;

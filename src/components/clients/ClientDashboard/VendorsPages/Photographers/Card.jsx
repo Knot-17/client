@@ -11,14 +11,14 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 
 import FormControl from '@mui/material/FormControl';
-
+import PaymentGetway from './../../PaymentGetway/PaymentGetway'
 const Cardss = ( {AvailableArea,VendorPic}) => {
 
    const [showReqQuote,setShowReqQuote] = useState(false);
    const [step, setStep] = useState(0);
    const [venue, setVenue] = useState(false);
    const [city, setCity] = useState(false);
-   
+   const[showPayGetway,setShowPayGetway] = useState(false);
 
  
 
@@ -52,6 +52,18 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
 
     return (
         <div className='w-full'>
+          <div className={`fixed  z-[1] left-0 top-0 overflow-auto w-full h-full
+           bg-black/40  justify-center items-center ${showPayGetway===true? 'flex': 'hidden'}`}>
+            <IoCloseOutline className="absolute left-[1080px] top-[200px] text-[32px] text-slate-400 cursor-pointer mt-3 mr-3" 
+              onClick={()=>{
+                setShowPayGetway(false);
+                
+              
+              }}
+              />
+          <PaymentGetway/>
+          
+          </div>
           <div className={`fixed pt-[100px] z-[1] left-0 top-0 overflow-auto w-full h-full
            bg-black/40  justify-center items-center ${showReqQuote===true? 'flex': 'hidden'}`}>
             <div className="flex justify-end" >
@@ -441,7 +453,11 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
           <h1 className='text-[20px] mt-1'>Name</h1>
           <div className="flex justify-between">
           <h1 className='text-[14px] nt-1 text-slate-700'>price</h1>
-          <Link className="text-[#01bf71] font-medium italic flex hover:text-[#068550]"><GiNotebook className=" text-[20px]"/>Book Now</Link>
+          <Link className="text-[#01bf71] font-medium italic flex hover:text-[#068550]"
+          onClick={()=>{
+            setShowPayGetway(true);
+           }}
+          ><GiNotebook className=" text-[20px]"/>Book Now</Link>
           </div>
         </div>
         <div className='border-2 border-red-400 ml-auto mr-auto mt-2 text-[14px] h-8 w-full

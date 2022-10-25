@@ -7,7 +7,7 @@ const PaymentGetway = () => {
         <div>
             <Wrapper>
             <Container>
-                <IoCloseOutline className='ml-auto text-[24px] mr-[5px] cursor-pointer'/>
+                
                 <div className='flex h-[400px]'>
                 <CheckBox>
                 <CheckBoxCont></CheckBoxCont>

@@ -7,7 +7,8 @@ import DacoratorsList from "../pages/DecoratorsList";
 import DestinationPlannersList from "../pages/DestinationPlannersList";
 import MusicBandsList from "../pages/MusicBandsList";
 import CheckListPage from "../pages/CheckListPage";
-import PaymentGetway from "../PaymentGetway/PaymentGetway";
+
+import VenderReview from "../VerdersReviews/VenderReviews";
 
 
 
@@ -19,5 +20,5 @@ export default[
     {path:"/client/DestinationPlannersList",component:DestinationPlannersList},
     {path:"/client/MusicBandsList",component:MusicBandsList},
     {path:"/client/CheckList",component:CheckListPage},
-    {path:"/client/Payment",component:PaymentGetway}
+    {path:"/client/VenderReview",component:VenderReview }
 ]
