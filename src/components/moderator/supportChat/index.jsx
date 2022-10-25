@@ -6,8 +6,8 @@ const SupportChat = () => {
   return (
     <ChatEngine
       projectID={process.env.REACT_APP_CE_PROJECT_ID}
-      userName="Adam La Morre"
-      userSecret="pass1234"
+      userName="ninthu1999@gmail.com"
+      userSecret="Ninthu_1999"
       height="calc(100vh - 12px)"
     />
   );

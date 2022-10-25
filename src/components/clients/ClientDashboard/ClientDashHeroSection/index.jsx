@@ -13,6 +13,7 @@ import {
 
 import Vendors from "../ClientDashContent/Vendors";
 import YourWedding from "../ClientDashContent/YourWedding";
+import SupportEngine from "../../chat";
 
 const HeroSection = () => {
   const [isExpanded, setExpanded] = useState(true);
@@ -44,6 +45,7 @@ const HeroSection = () => {
       <HeroContainer2>
         <YourWedding />
       </HeroContainer2>
+      <SupportEngine />
     </>
   );
 };

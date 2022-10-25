@@ -18,6 +18,7 @@ import Routes_Dealers from "./components/dealers/Routes/Routes_Dealers";
 import Routes_Common from "./components/common/Routes/Routes_Common";
 import Routes_Admin from "./components/admin/Dashboard/Routes/Routes_Admin";
 import Routes_Clients from "./components/clients/ClientDashboard/Routes/Route_Clients";
+import SupportChat from "./components/moderator/supportChat";
 function App() {
   return (
     <Router>
@@ -30,6 +31,7 @@ function App() {
         <Route path="/user/profile" component={Profile} exact />
         <Route path="/admin/profile" component={Dashboard} exact />
         <Route path="/clientdash" component={ClientDash} exact />
+        <Route path="/moderator/chat" component={SupportChat} exact />
         {Routes.map((props) => (
           <Route exact {...props} />
         ))}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { styles } from "../styles";
 
@@ -9,6 +9,8 @@ import { LoadingOutlined } from "@ant-design/icons";
 import Avatar from "../Avatar";
 
 const EmailForm = (props) => {
+  const [filter, setFilter] = useState("");
+
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -27,7 +29,7 @@ const EmailForm = (props) => {
     axios
       .put(
         "https://api.chatengine.io/chats/",
-        { usernames: [email, "Adam La Morre"], is_direct_chat: true },
+        { usernames: [email, "ninthu1999@gmail.com"], is_direct_chat: true },
         {
           headers: {
             "Project-ID": process.env.REACT_APP_CE_PROJECT_ID,
