@@ -6,6 +6,9 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 // import { yupResolver } from "@hookform/resolvers";
 
 import styled from 'styled-components';
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 
 const Container =styled.div`  
@@ -16,6 +19,38 @@ const AddDecorators = () => {
   const handleClickInstagram = () => setHasInstagram(!hasInstagram) 
   const  [hasFacebook, setHasFacebook] = useState(false);
   const handleClickFacebook = () => setHasFacebook(!hasFacebook)
+
+  const convert2base64 = (file) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+
+    fileReader.onload = () => {
+      console.log(fileReader.result);
+      // setImage1(fileReader.result.toString());
+    };
+  };
+
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+    convert2base64(data.image1[0]);
+    convert2base64(data.image2[0]);
+    const response = axios
+      .post("http://localhost:5000/api/v1/dealersAds", data)
+      .then((res) => {
+        console.log(res);
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Your ad has been posted",
+        });
+        window.location.replace("http://localhost:3001/events");
+      })
+      .catch((err) => {
+        if (err && err.response);
+        console.log(err);
+      });
+  };
 
 
   return (
@@ -28,13 +63,37 @@ const AddDecorators = () => {
                 </ImageContainer>
                 <FormContainer>
                     <TitleContainer> Add your Creative Decors! </TitleContainer>
-                    <Form>
-                      <FormBox>
+                    <Form onSubmit={handleSubmit(onSubmit)}>
+                <FormBox>
+                  <Input
+                    name="dealersID"
+                    {...register("dealersID", {
+                      required: true,
+                    })}
+                    value={localStorage.getItem("did")}
+                    hidden
+                    readOnly
+                  />
+                  <Input
+                    name="services"
+                    {...register("services", {
+                      required: true,
+                    })}
+                    value={localStorage.getItem("dservice")}
+                    hidden
+                    readOnly
+                  />
+
                          <InputContainerFull>
                             <InputContainerLeft>
                               <Label> Name of the Crew </Label>
                               <InputBox>
-                                <Input  />
+                                <Input  
+                                name="crews"
+                                {...register("crews", {
+                                  required: true,
+                                  minLength: 2,
+                                })}/>
                               </InputBox>
                             </InputContainerLeft>
                           </InputContainerFull>
@@ -42,6 +101,13 @@ const AddDecorators = () => {
                             <InputContainerLeft>
                               <Label> Description </Label>
                               <InputBox>
+                              <Input
+                          name="description"
+                          {...register("description", {
+                            required: true,
+                            minLength: 2,
+                          })}
+                        />
                                 <TextArea 
                                   rows={4}/>
                               </InputBox>
@@ -51,7 +117,11 @@ const AddDecorators = () => {
                             <InputContainerLeft>
                               <Label>Website URL</Label>
                               <InputBox>
-                                <Input  />
+                                <Input name="websiteurl"
+                          {...register("websiteurl", {
+                            required: true,
+                            minLength: 2,
+                          })} />
                               </InputBox>
                             </InputContainerLeft>
                           </InputContainerFull>
@@ -69,7 +139,11 @@ const AddDecorators = () => {
                                     <InputContainerLeft>
                                       <Label>Instagram URL</Label>
                                       <InputBox>
-                                        <Input/>
+                                        <Input
+                                         name="instagram"
+                                         {...register("instagram", {
+                                           minLength: 2,
+                                         })}/>
                                       </InputBox>
                                     </InputContainerLeft>
                                     
@@ -85,7 +159,11 @@ const AddDecorators = () => {
                                     <InputContainerLeft>
                                       <Label>Facebook URL</Label>
                                       <InputBox>
-                                        <Input/>
+                                        <Input
+                                        name="facebook"
+                                        {...register("facebook", {
+                                          minLength: 2,
+                                        })}/>
                                       </InputBox>
                                     </InputContainerLeft>
                                     
@@ -96,13 +174,23 @@ const AddDecorators = () => {
                             <InputContainerLeft>
                               <Label> Location </Label>
                               <InputBox>
-                                <Input  />
+                                <Input 
+                                 name="location"
+                                 {...register("location", {
+                                   required: true,
+                                   minLength: 2,
+                                 })} />
                               </InputBox>
                             </InputContainerLeft>
                             <InputContainerLeft>
                               <Label> Street </Label>
                               <InputBox>
-                                <Input  />
+                                <Input  
+                                 name="street"
+                                 {...register("street", {
+                                   required: true,
+                                   minLength: 2,
+                                 })}/>
                               </InputBox>
                             </InputContainerLeft>
                           </InputContainerDouble>
@@ -110,7 +198,12 @@ const AddDecorators = () => {
                             <InputContainerLeft>
                               <Label> District </Label>
                               <InputBox>
-                                <Input  />
+                                <Input  
+                                name="district"
+                                {...register("district", {
+                                  required: true,
+                                  minLength: 2,
+                                })}/>
                               </InputBox>
                             </InputContainerLeft>
                           </InputContainerSingle>
@@ -118,7 +211,10 @@ const AddDecorators = () => {
                             <InputContainerLeft>
                                 <Label> Amount </Label>
                                 <InputBox>
-                                  <Input  />
+                                  <Input name="amount"
+                          {...register("amount", {
+                            required: true,
+                          })} />
                                 </InputBox>
                               </InputContainerLeft>
                           </InputContainerSingle>
@@ -126,12 +222,20 @@ const AddDecorators = () => {
                           <InputContainerDouble>
                             <InputContainerLeft>
                               <InputBox>
-                                <Input type={'file'} />
+                                <Input
+                                name="image1"
+                                {...register("image1", {
+                                  required: true,
+                                })} type={'file'} />
                               </InputBox>
                             </InputContainerLeft>
                             <InputContainerLeft>
                               <InputBox>
-                                <Input type={'file'} />
+                                <Input 
+                                name="image2"
+                                {...register("image2", {
+                                  required: true,
+                                })} type={'file'} />
                               </InputBox>
                             </InputContainerLeft>
                           </InputContainerDouble>
