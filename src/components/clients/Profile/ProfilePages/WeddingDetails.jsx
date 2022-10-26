@@ -76,29 +76,29 @@ const WeddingDetails = () => {
             <InputContainerLeft>
               <Label> No of Guests </Label>
               <InputBox>
-                <Select name="guestcount" defaultValue={filter.guestcount}>
+                <Select name="guestcount" value={filter.guestcount}>
                   <option value="" disabled hidden>
                     Estimated guest count
                   </option>
-                  <option value="1">0 - 50</option>
-                  <option value="2">50 - 150</option>
-                  <option value="3">150 - 300 </option>
-                  <option value="4">300 - 500</option>
-                  <option value="5">500 +</option>
+                  <option value="50">0 - 50</option>
+                  <option value="150">50 - 150</option>
+                  <option value="300">150 - 300 </option>
+                  <option value="500">300 - 500</option>
+                  <option value="501">500 +</option>
                 </Select>
               </InputBox>
             </InputContainerLeft>
             <InputContainerLeft>
               <Label> Wedding Budget</Label>
               <InputBox>
-                <Select name="budget" defaultValue={filter.budget}>
+                <Select name="budget" value={filter.budget}>
                   <option value="" disabled hidden>
                     Budget range
                   </option>
-                  <option value="1">Below 100000 Rs</option>
-                  <option value="2">100000 - 150000 Rs</option>
-                  <option value="3">150000 - 300000 Rs</option>
-                  <option value="4">Above 300000 Rs</option>
+                  <option value="100000">Below 100000 Rs</option>
+                  <option value="150000">100000 - 150000 Rs</option>
+                  <option value="300000">150000 - 300000 Rs</option>
+                  <option value="300001">Above 300000 Rs</option>
                 </Select>
               </InputBox>
             </InputContainerLeft>

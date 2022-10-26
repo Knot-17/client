@@ -195,14 +195,40 @@ export default function PersonalDetails() {
                 City
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
-                <input
+                <select
                   onChange={handleChange}
-                  value={userData["city"] || ""}
                   name="city"
                   placeholder="City"
                   type="text"
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
-                />
+                >
+                  <option value="">Select City</option>
+                  <option value="Ampara">Ampara</option>
+                  <option value="Anuradhapura">Anuradhapura</option>
+                  <option value="Badulla">Badulla</option>
+                  <option value="Batticaloa">Batticaloa</option>
+                  <option value="Colombo">Colombo</option>
+                  <option value="Galle">Galle</option>
+                  <option value="Gampaha">Gampaha</option>
+                  <option value="Hambantota">Hambantota</option>
+                  <option value="Jaffna">Jaffna</option>
+                  <option value="Kalutura">Kalutura</option>
+                  <option value="Kandy">Kandy</option>
+                  <option value="Kegalle">Kegalle</option>
+                  <option value="Kilinochchi">Kilinochchi</option>
+                  <option value="Kurunegala">Kurunegala</option>
+                  <option value="Mannar">Mannar</option>
+                  <option value="Maatale">Maatale</option>
+                  <option value="Matara">Matara</option>
+                  <option value="Moneragala">Moneragala</option>
+                  <option value="Mullaitivu">Mullaitivu</option>
+                  <option value="Nuwara Eliya">Nuwara Eliya</option>
+                  <option value="Polonnaruwa">Polonnaruwa</option>
+                  <option value="Puttalam">Puttalam</option>
+                  <option value="Ratnapura">Ratnapura</option>
+                  <option value="Trincomalee">Trincomalee</option>
+                  <option value="Vavuniya">Vavuniya</option>
+                </select>
               </div>
             </div>
           </div>

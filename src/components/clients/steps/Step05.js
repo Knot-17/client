@@ -38,11 +38,11 @@ function Step05() {
             style={{ width: "200px", border: "none", marginLeft: "10px" }}
             onChange={handleChangeGuestCount}
           >
-            <Option value="1">0 - 50</Option>
-            <Option value="2">50 - 150</Option>
-            <Option value="3">150 - 300 </Option>
-            <Option value="4">300 - 500</Option>
-            <Option value="5">500 +</Option>
+            <Option value="50">0 - 50</Option>
+            <Option value="150">50 - 150</Option>
+            <Option value="300">150 - 300 </Option>
+            <Option value="500">300 - 500</Option>
+            <Option value="501">500 +</Option>
           </Select>
         </div>
         <div className="mt-8">
@@ -55,10 +55,10 @@ function Step05() {
             style={{ width: "200px", border: "none" }}
             onChange={handleChangeBudget}
           >
-            <Option value="1">Below 100000 Rs</Option>
-            <Option value="2">100000 - 150000 Rs</Option>
-            <Option value="3">150000 - 300000 Rs</Option>
-            <Option value="4">Above 300000 Rs</Option>
+            <Option value="100000">Below 100000 Rs</Option>
+            <Option value="150000">100000 - 150000 Rs</Option>
+            <Option value="300000">150000 - 300000 Rs</Option>
+            <Option value="300001">Above 300000 Rs</Option>
           </Select>
         </div>
       </form>

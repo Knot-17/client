@@ -22,6 +22,11 @@ function Step04() {
     console.log(value);
   };
 
+  const handleChangeLocation = (value) => {
+    setFilterdata({ ...filterdata, location: value });
+    console.log(value);
+  };
+
   return (
     <div className=" w-[100%] h-[50%]   rounded-2xl pb-2 flex flex-col p-10 items-center">
       <h1 className="text-center font-semibold text-[16px] lg:text-[20px] xl:text-[24px]">
@@ -33,18 +38,42 @@ function Step04() {
           <label className="text-[14px] lg:text-[18px] xl:text-[20px]">
             We are thinking about{" "}
           </label>
-          <Input
+          <Select
             placeholder="Location"
-            onChange={handleChange}
+            onChange={handleChangeLocation}
             style={{
               width: "200px",
               border: "none",
-              borderBottom: "1px solid #a5a5a5",
             }}
             name="location"
-            value={filterdata["location"] || ""}
             className="text-lg mr-4"
-          />
+          >
+            <Option value="Ampara">Ampara</Option>
+            <Option value="Anuradhapura">Anuradhapura</Option>
+            <Option value="Badulla">Badulla</Option>
+            <Option value="Batticaloa">Batticaloa</Option>
+            <Option value="Colombo">Colombo</Option>
+            <Option value="Galle">Galle</Option>
+            <Option value="Gampaha">Gampaha</Option>
+            <Option value="Hambantota">Hambantota</Option>
+            <Option value="Jaffna">Jaffna</Option>
+            <Option value="Kalutura">Kalutura</Option>
+            <Option value="Kandy">Kandy</Option>
+            <Option value="Kegalle">Kegalle</Option>
+            <Option value="Kilinochchi">Kilinochchi</Option>
+            <Option value="Kurunegala">Kurunegala</Option>
+            <Option value="Mannar">Mannar</Option>
+            <Option value="Maatale">Maatale</Option>
+            <Option value="Matara">Matara</Option>
+            <Option value="Moneragala">Moneragala</Option>
+            <Option value="Mullaitivu">Mullaitivu</Option>
+            <Option value="Nuwara Eliya">Nuwara Eliya</Option>
+            <Option value="Polonnaruwa">Polonnaruwa</Option>
+            <Option value="Puttalam">Puttalam</Option>
+            <Option value="Ratnapura">Ratnapura</Option>
+            <Option value="Trincomalee">Trincomalee</Option>
+            <Option value="Vavuniya">Vavuniya</Option>
+          </Select>
         </div>
         <div className="mt-8">
           <label className="text-[14px] lg:text-[18px] xl:text-[20px]">

@@ -7,18 +7,60 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
+import axios from "axios";
+
+import { RiUserLocationFill } from "react-icons/ri";
+import { FaLocationArrow } from "react-icons/fa";
+import { SiWorkplace } from "react-icons/si";
+import { BsCash } from "react-icons/bs";
+import { HiUserGroup } from "react-icons/hi";
+
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 
 import FormControl from "@mui/material/FormControl";
 import PaymentGetway from "./../../PaymentGetway/PaymentGetway";
 
-const Cardss = ({ AvailableArea, VendorPic }) => {
+import { useForm } from "react-hook-form";
+
+const Cardss = ({
+  AvailableArea,
+  VendorPic,
+  Price,
+  Name,
+  Maxguest,
+  DealerID,
+}) => {
   const [showReqQuote, setShowReqQuote] = useState(false);
   const [step, setStep] = useState(0);
   const [venue, setVenue] = useState(false);
   const [city, setCity] = useState(false);
   const [showPayGetway, setShowPayGetway] = useState(false);
+  const [value, setValue] = useState({});
+
+  const { register, handleSubmit } = useForm();
+
+  const handleChange = (e) => {
+    const { name, v } = e.target;
+    console.log({ ...value, [name]: v });
+    setValue({ ...value, [name]: v });
+  };
+
+  const onSubmit = (data) => {
+    console.log(data);
+    const id = localStorage.getItem("id");
+    setValue({ ...data, dealerID: DealerID, clientID: id });
+    const response = axios
+      .post("http://localhost:5000/api/v1/addQuote", {
+        ...data,
+        dealerID: DealerID,
+        clientID: id,
+      })
+      .catch((err) => {
+        if (err && err.response);
+        console.log(err);
+      });
+  };
 
   const DisplaySteps = () => {
     switch (step) {
@@ -50,7 +92,7 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
            }`}
       >
         <IoCloseOutline
-          className="absolute left-[1080px] top-[200px] text-[32px] text-slate-400 cursor-pointer mt-3 mr-3"
+          className="absolute left-[1165px] top-[210px] text-[32px] text-slate-400 cursor-pointer mt-3 mr-3"
           onClick={() => {
             setShowPayGetway(false);
           }}
@@ -72,7 +114,10 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
             }}
           />
           <div className="h-[600px] w-full md:w-[600px] bg-white rounded-[5px] flex justify-center">
-            <form className="mt-[50px] w-[85%]">
+            <form
+              className="mt-[50px] w-[85%]"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <h1 className=" text-[12px] font-[500]">
                 {step + 1} of 7 - {DisplaySteps()}
               </h1>
@@ -122,6 +167,10 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
                         type="text"
                         className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none  "
                         placeholder="First Name"
+                        name="firstname"
+                        {...register("firstname", {
+                          required: true,
+                        })}
                       />
                     </div>
                     <div className="border-[1px] border-slate-300 w-[230px] flex justify-center ml-2 ">
@@ -129,6 +178,10 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
                         type="text"
                         className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none"
                         placeholder="Last Name"
+                        name="lastname"
+                        {...register("lastname", {
+                          required: true,
+                        })}
                       />
                     </div>
                   </div>
@@ -150,6 +203,10 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
                         type="text"
                         className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none w-[80%]"
                         placeholder="Your Email"
+                        name="email"
+                        {...register("email", {
+                          required: true,
+                        })}
                       />
                     </div>
                   </div>
@@ -173,16 +230,11 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
                         type="date"
                         className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none w-[80%]"
                         placeholder="Your Email"
+                        name="weddingdate"
+                        {...register("weddingdate", {
+                          required: true,
+                        })}
                       />
-                    </div>
-                    <div className="text-[20px]">
-                      <FormGroup>
-                        <FormControlLabel
-                          value="flexible"
-                          control={<Checkbox />}
-                          label="My wedding date is flexible"
-                        />
-                      </FormGroup>
                     </div>
                   </div>
                 </div>
@@ -201,17 +253,19 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
                   </h1>
                   <div className="mt-[50px] ">
                     <div className="border-[1px] border-slate-300 w-full h-[50px]  flex justify-center  ">
-                      <select className=" outline-none w-full ">
+                      <select
+                        name="guestcount"
+                        {...register("guestcount", {
+                          required: true,
+                        })}
+                        className=" outline-none w-full  "
+                      >
                         <option value="0">Number of guests</option>
-                        <option value="0-50" className="h-[400px]">
-                          0-50
-                        </option>
-                        <option value="51-100">51-100</option>
-                        <option value="101-150">101-150</option>
-                        <option value="151-200">151-200</option>
-                        <option value="201-250">201-250</option>
-                        <option value="251-300">251-300</option>
-                        <option value="301 or more">301 or more</option>
+                        <option value="50">0 - 50</option>
+                        <option value="150">50 - 150</option>
+                        <option value="300">150 - 300 </option>
+                        <option value="500">300 - 500</option>
+                        <option value="501">500 +</option>
                       </select>
                     </div>
                   </div>
@@ -235,7 +289,6 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
                         <RadioGroup
                           aria-labelledby="demo-radio-buttons-group-label"
                           className="  w-full"
-                          name="radio-buttons-group"
                         >
                           <FormControlLabel
                             value="Yes"
@@ -255,16 +308,10 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
                               <input
                                 type="text"
                                 className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none w-[80%]"
-                                placeholder="Your Reception Venue"
+                                placeholder="Your Wedding Venue"
+                                name="weddingvenue"
+                                {...register("weddingvenue")}
                               />
-                            </div>
-                            <div className="text-[20px]">
-                              <FormGroup>
-                                <FormControlLabel
-                                  control={<Checkbox />}
-                                  label="I also need services at a separate ceremony venue"
-                                />
-                              </FormGroup>
                             </div>
                           </div>
                           <FormControlLabel
@@ -285,6 +332,8 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
                               type="text"
                               className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none w-[80%]"
                               placeholder="Your Wedding City"
+                              name="weddingcity"
+                              {...register("weddingcity")}
                             />
                           </div>
                         </RadioGroup>
@@ -317,7 +366,10 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
                         <RadioGroup
                           aria-labelledby="demo-radio-buttons-group-label"
                           className="  w-full"
-                          name="radio-buttons-group"
+                          name="videochat"
+                          {...register("videochat", {
+                            required: true,
+                          })}
                         >
                           <FormControlLabel
                             value="Yes"
@@ -360,6 +412,10 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
                       <textarea
                         className="w-[95%] h-[140px]  resize-none outline-none"
                         placeholder="Hello! My partner and I are getting married and we're intersted in learning more about pricing and services."
+                        name="weddingdescription"
+                        {...register("weddingdescription", {
+                          required: true,
+                        })}
                       ></textarea>
                     </div>
 
@@ -404,7 +460,7 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
              flex justify-center items-center hover:bg-red-600 cursor-pointer  ${
                step === 6 ? "block" : "hidden"
              }`}
-                  type="submit"
+                  onClick={handleSubmit}
                 >
                   Submit
                 </button>
@@ -414,7 +470,8 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
         </div>
       </div>
 
-      <Link className=" bg-white w-fit   ">
+      {/* <Link className=" bg-white w-fit "> */}
+      <div className="bg-white w-fit border-green-700">
         <div className="flex justify-end">
           <div
             className="absolute flex  mt-2 mr-2 rounded-full text-[20px] bg-white h-[30px] w-[30px]
@@ -429,10 +486,40 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
           ></img>
         </div>
         <div className="mt-[10px] ml-2">
-          <h1 className="text-[12px] text-slate-600">{AvailableArea}</h1>
-          <h1 className="text-[20px] mt-1">Name</h1>
+          <div className="flex flex-row items-center gap-2 mb-3">
+            <div className="text-[18px] text-green-600">
+              <FaLocationArrow />
+            </div>
+            <h1 className="text-[15px] text-slate-600 font-sans font-semibold ">
+              {AvailableArea}
+            </h1>
+          </div>
+          <div className="flex flex-row items-center gap-2 mb-3">
+            <div className="text-[18px] text-green-600">
+              <SiWorkplace />
+            </div>
+            <h1 className="text-[15px] text-slate-600  font-sans font-semibold ">
+              {Name}
+            </h1>
+          </div>
+          <div className="flex flex-row items-center gap-2 mb-3">
+            <div className="text-[18px] text-green-600">
+              <HiUserGroup />
+            </div>
+            <h1 className="text-[15px] text-slate-600  font-sans font-semibold ">
+              Max:{Maxguest}
+            </h1>
+          </div>
+
           <div className="flex justify-between">
-            <h1 className="text-[14px] nt-1 text-slate-700">price</h1>
+            <div className="flex flex-row items-center gap-2 mb-3">
+              <div className="text-[18px] text-green-600">
+                <BsCash />
+              </div>
+              <h1 className="text-[15px] nt-1 text-slate-700  font-sans font-semibold">
+                {Price}
+              </h1>
+            </div>
             <Link
               className="text-[#01bf71] font-medium italic flex hover:text-[#068550]"
               onClick={() => {
@@ -453,7 +540,8 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
         >
           REQUEST QUOTE
         </div>
-      </Link>
+      </div>
+      {/* </Link> */}
     </div>
   );
 };
