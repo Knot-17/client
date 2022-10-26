@@ -7,7 +7,9 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 
 import styled from 'styled-components';
-
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import Swal from "sweetalert2";
 const Container =styled.div`  
 `
 const AddPhotographers = () => {
@@ -16,7 +18,37 @@ const AddPhotographers = () => {
   const  [hasFacebook, setHasFacebook] = useState(false);
   const handleClickFacebook = () => setHasFacebook(!hasFacebook)
 
+  const convert2base64 = (file) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
 
+    fileReader.onload = () => {
+      console.log(fileReader.result);
+      // setImage1(fileReader.result.toString());
+    };
+  };
+
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+    convert2base64(data.image1[0]);
+    convert2base64(data.image2[0]);
+    const response = axios
+      .post("http://localhost:5000/api/v1/dealersAds", data)
+      .then((res) => {
+        console.log(res);
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Your ad has been posted",
+        });
+        window.location.replace("http://localhost:3001/events");
+      })
+      .catch((err) => {
+        if (err && err.response);
+        console.log(err);
+      });
+  };
   return (
     <Container>
       <MainContainer>
@@ -27,13 +59,36 @@ const AddPhotographers = () => {
                 </ImageContainer>
                 <FormContainer>
                     <TitleContainer> Add your Album! </TitleContainer>
-                    <Form>
-                      <FormBox>
+                    <Form onSubmit={handleSubmit(onSubmit)}>
+                <FormBox>
+                  <Input
+                    name="dealersID"
+                    {...register("dealersID", {
+                      required: true,
+                    })}
+                    value={localStorage.getItem("did")}
+                    hidden
+                    readOnly
+                  />
+                  <Input
+                    name="services"
+                    {...register("services", {
+                      required: true,
+                    })}
+                    value={localStorage.getItem("dservice")}
+                    hidden
+                    readOnly
+                  />
                          <InputContainerFull>
                             <InputContainerLeft>
                               <Label> Name of the Studio </Label>
                               <InputBox>
-                                <Input  />
+                                <Input
+                                name="studios"
+                                {...register("studios", {
+                                  required: true,
+                                  minLength: 2,
+                                })}  />
                               </InputBox>
                             </InputContainerLeft>
                           </InputContainerFull>
@@ -41,6 +96,13 @@ const AddPhotographers = () => {
                             <InputContainerLeft>
                               <Label> Description </Label>
                               <InputBox>
+                              <Input
+                          name="category"
+                          {...register("category", {
+                            required: true,
+                            minLength: 2,
+                          })}
+                        />
                                 <TextArea 
                                   rows={4}/>
                               </InputBox>
@@ -50,7 +112,12 @@ const AddPhotographers = () => {
                             <InputContainerLeft>
                               <Label>Website URL</Label>
                               <InputBox>
-                                <Input  />
+                                <Input
+                                name="websiteurl"
+                                {...register("websiteurl", {
+                                  required: true,
+                                  minLength: 2,
+                                })}  />
                               </InputBox>
                             </InputContainerLeft>
                           </InputContainerFull>
@@ -68,7 +135,11 @@ const AddPhotographers = () => {
                                     <InputContainerLeft>
                                       <Label>Instagram URL</Label>
                                       <InputBox>
-                                        <Input/>
+                                        <Input
+                                        name="instagram"
+                                        {...register("instagram", {
+                                          minLength: 2,
+                                        })}/>
                                       </InputBox>
                                     </InputContainerLeft>
                                     
@@ -84,7 +155,11 @@ const AddPhotographers = () => {
                                     <InputContainerLeft>
                                       <Label>Facebook URL</Label>
                                       <InputBox>
-                                        <Input/>
+                                        <Input
+                                        name="facebook"
+                                        {...register("facebook", {
+                                          minLength: 2,
+                                        })}/>
                                       </InputBox>
                                     </InputContainerLeft>
                                     
@@ -95,13 +170,23 @@ const AddPhotographers = () => {
                             <InputContainerLeft>
                               <Label> Location </Label>
                               <InputBox>
-                                <Input  />
+                                <Input 
+                                name="location"
+                                {...register("location", {
+                                  required: true,
+                                  minLength: 2,
+                                })} />
                               </InputBox>
                             </InputContainerLeft>
                             <InputContainerLeft>
                               <Label> Street </Label>
                               <InputBox>
-                                <Input  />
+                                <Input  
+                                name="street"
+                                {...register("street", {
+                                  required: true,
+                                  minLength: 2,
+                                })}/>
                               </InputBox>
                             </InputContainerLeft>
                           </InputContainerDouble>
@@ -109,7 +194,12 @@ const AddPhotographers = () => {
                             <InputContainerLeft>
                               <Label> District </Label>
                               <InputBox>
-                                <Input  />
+                                <Input 
+                                name="district"
+                                {...register("district", {
+                                  required: true,
+                                  minLength: 2,
+                                })} />
                               </InputBox>
                             </InputContainerLeft>
                           </InputContainerSingle>
@@ -117,7 +207,11 @@ const AddPhotographers = () => {
                             <InputContainerLeft>
                                 <Label> Amount </Label>
                                 <InputBox>
-                                  <Input  />
+                                  <Input  
+                                  name="amount"
+                                  {...register("amount", {
+                                    required: true,
+                                  })}/>
                                 </InputBox>
                               </InputContainerLeft>
                           </InputContainerSingle>
@@ -125,12 +219,20 @@ const AddPhotographers = () => {
                           <InputContainerDouble>
                             <InputContainerLeft>
                               <InputBox>
-                                <Input type={'file'} />
+                                <Input 
+                                name="image1"
+                                {...register("image1", {
+                                  required: true,
+                                })} type={'file'} />
                               </InputBox>
                             </InputContainerLeft>
                             <InputContainerLeft>
                               <InputBox>
-                                <Input type={'file'} />
+                                <Input 
+                                name="image2"
+                                {...register("image2", {
+                                  required: true,
+                                })} type={'file'} />
                               </InputBox>
                             </InputContainerLeft>
                           </InputContainerDouble>
