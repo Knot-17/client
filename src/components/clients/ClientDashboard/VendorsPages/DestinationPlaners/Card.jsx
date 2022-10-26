@@ -11,12 +11,14 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 
 import FormControl from "@mui/material/FormControl";
+import PaymentGetway from "./../../PaymentGetway/PaymentGetway";
 
 const Cardss = ({ AvailableArea, VendorPic }) => {
   const [showReqQuote, setShowReqQuote] = useState(false);
   const [step, setStep] = useState(0);
   const [venue, setVenue] = useState(false);
   const [city, setCity] = useState(false);
+  const [showPayGetway, setShowPayGetway] = useState(false);
 
   const DisplaySteps = () => {
     switch (step) {
@@ -31,16 +33,8 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
       case 4:
         return "Venue";
       case 5:
-        return "Additional Services";
-      case 6:
-        return "Events";
-      case 7:
-        return "Duration";
-      case 8:
-        return "Budget";
-      case 9:
         return "Video Chat";
-      case 9:
+      case 6:
         return "Add a Note";
 
       default:
@@ -49,6 +43,20 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
 
   return (
     <div className="w-full">
+      <div
+        className={`fixed  z-[1] left-0 top-0 overflow-auto w-full h-full
+           bg-black/40  justify-center items-center ${
+             showPayGetway === true ? "flex" : "hidden"
+           }`}
+      >
+        <IoCloseOutline
+          className="absolute left-[1080px] top-[200px] text-[32px] text-slate-400 cursor-pointer mt-3 mr-3"
+          onClick={() => {
+            setShowPayGetway(false);
+          }}
+        />
+        <PaymentGetway />
+      </div>
       <div
         className={`fixed pt-[100px] z-[1] left-0 top-0 overflow-auto w-full h-full
            bg-black/40  justify-center items-center ${
@@ -66,7 +74,7 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
           <div className="h-[600px] w-full md:w-[600px] bg-white rounded-[5px] flex justify-center">
             <form className="mt-[50px] w-[85%]">
               <h1 className=" text-[12px] font-[500]">
-                {step + 1} of 9 - {DisplaySteps()}
+                {step + 1} of 7 - {DisplaySteps()}
               </h1>
               <div className=" w-full  h-[8px] rounded ">
                 {/*progress bar */}
@@ -75,22 +83,18 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
                   className={` h-[100%] bg-green-700 rounded
             ${
               step === 0
-                ? "w-[11%]"
+                ? "w-[14.285%]"
                 : step === 1
-                ? "w-[22%]"
+                ? "w-[28.57%]"
                 : step === 2
-                ? "w-[33%]"
+                ? "w-[42.855%]"
                 : step === 3
-                ? "w-[44%]"
+                ? "w-[57.14%]"
                 : step === 4
-                ? "w-[55%]"
+                ? "w-[71.425%]"
                 : step === 5
-                ? "w-[66%]"
+                ? "w-[85.71%]"
                 : step === 6
-                ? "w-[77%]"
-                : step === 7
-                ? "w-[88%]"
-                : step === 8
                 ? "w-[100%]"
                 : ""
             }
@@ -221,119 +225,11 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
                   step === 4 ? "block" : "hidden"
                 } mt-4 h-[400px]  `}
               >
-                <div className="pt-[30px]">
+                <div className="pt-[50px]">
                   <h1 className="text-[20px] font-[600]">
-                    Which events do you plan to hold at this venue?
+                    Do you have a venue picked out?
                   </h1>
                   <div className="mt-[20px] flex">
-                    <div className=" w-full flex  ">
-                      <FormControl className=" w-full">
-                        <FormGroup>
-                          <FormControlLabel
-                            value="Rehearsal"
-                            control={<Checkbox />}
-                            label="Rehearsal"
-                          />
-                          <FormControlLabel
-                            value="Ceremony"
-                            control={<Checkbox />}
-                            label="Ceremony"
-                          />
-                          <FormControlLabel
-                            value="Reception"
-                            control={<Checkbox />}
-                            label="Reception"
-                          />
-                        </FormGroup>
-                      </FormControl>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* Step 06 */}
-
-              <div
-                className={`${
-                  step === 5 ? "block" : "hidden"
-                } mt-4 h-[400px]  `}
-              >
-                <div className="pt-[30px]">
-                  <h1 className="text-[20px] font-[600]">
-                    What additional services might you be interested in?
-                  </h1>
-                  <div className="mt-[20px] flex h-[300px] overflow-auto">
-                    <div className=" w-full flex  ">
-                      <FormControl className=" w-full">
-                        <FormGroup>
-                          <FormControlLabel
-                            value="Indoor area"
-                            control={<Checkbox />}
-                            label="Indoor area"
-                          />
-                          <FormControlLabel
-                            value="Outdoor area"
-                            control={<Checkbox />}
-                            label="Outdoor area"
-                          />
-                          <FormControlLabel
-                            value="Sound equipment"
-                            control={<Checkbox />}
-                            label="Sound equipment"
-                          />
-                          <FormControlLabel
-                            value="Video equipment"
-                            control={<Checkbox />}
-                            label="Video equipment"
-                          />
-                          <FormControlLabel
-                            value="Tables & chairs"
-                            control={<Checkbox />}
-                            label="Tables & chairs"
-                          />
-                          <FormControlLabel
-                            value="Linens"
-                            control={<Checkbox />}
-                            label="Linens"
-                          />
-                          <FormControlLabel
-                            value="Lighting"
-                            control={<Checkbox />}
-                            label="Lighting"
-                          />
-                          <FormControlLabel
-                            value="Kitchen/Bar area"
-                            control={<Checkbox />}
-                            label="Kitchen/Bar area"
-                          />
-                          <FormControlLabel
-                            value="On-site catering"
-                            control={<Checkbox />}
-                            label="On-site catering"
-                          />
-                          <FormControlLabel
-                            value="Party planning services"
-                            control={<Checkbox />}
-                            label="Party planning services"
-                          />
-                        </FormGroup>
-                      </FormControl>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Step 07 */}
-
-              <div
-                className={`${
-                  step === 6 ? "block" : "hidden"
-                } mt-4 h-[400px]  `}
-              >
-                <div>
-                  <h1 className="text-[20px] font-[600]">
-                    What's your estimated budget for venue services?
-                  </h1>
-                  <div className="mt-[10px] flex">
                     <div className=" w-full flex  ">
                       <FormControl className=" w-full">
                         <RadioGroup
@@ -342,62 +238,72 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
                           name="radio-buttons-group"
                         >
                           <FormControlLabel
-                            value="Over $65,000"
+                            value="Yes"
                             control={<Radio />}
-                            label="Over $65,000"
+                            label="Yes, I have picked a venue"
+                            onClick={() => {
+                              setCity(false);
+                              setVenue(true);
+                            }}
                           />
+                          <div
+                            className={`${venue === true ? "block" : "hidden"}`}
+                          >
+                            <div
+                              className={`border-[1px] border-slate-300 w-full flex justify-center `}
+                            >
+                              <input
+                                type="text"
+                                className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none w-[80%]"
+                                placeholder="Your Reception Venue"
+                              />
+                            </div>
+                            <div className="text-[20px]">
+                              <FormGroup>
+                                <FormControlLabel
+                                  control={<Checkbox />}
+                                  label="I also need services at a separate ceremony venue"
+                                />
+                              </FormGroup>
+                            </div>
+                          </div>
                           <FormControlLabel
-                            value="$55,000 - $65,000"
+                            value="No"
                             control={<Radio />}
-                            label="$55,000 - $65,000"
+                            label="No, I'm still looking for a venue"
+                            onClick={() => {
+                              setVenue(false);
+                              setCity(true);
+                            }}
                           />
-                          <FormControlLabel
-                            value="$45,000 - $55,000"
-                            control={<Radio />}
-                            label="$45,000 - $55,000"
-                          />
-                          <FormControlLabel
-                            value="$35,000 - $45,000"
-                            control={<Radio />}
-                            label="$35,000 - $45,000"
-                          />
-                          <FormControlLabel
-                            value="$35,000 - $45,000"
-                            control={<Radio />}
-                            label="$35,000 - $45,000"
-                          />
-                          <FormControlLabel
-                            value="$15,000 - $25,000"
-                            control={<Radio />}
-                            label="$15,000 - $25,000"
-                          />
-                          <FormControlLabel
-                            value="$5,000 - $15,000"
-                            control={<Radio />}
-                            label="$5,000 - $15,000"
-                          />
-                          <FormControlLabel
-                            value="Less than $5,000"
-                            control={<Radio />}
-                            label="Less than $5,000"
-                          />
-                          <FormControlLabel
-                            value="not sure"
-                            control={<Radio />}
-                            label="I'm not sure yet"
-                          />
+                          <div
+                            className={`border-[1px] border-slate-300 w-full flex justify-center ${
+                              city === true ? "block" : "hidden"
+                            } `}
+                          >
+                            <input
+                              type="text"
+                              className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none w-[80%]"
+                              placeholder="Your Wedding City"
+                            />
+                          </div>
                         </RadioGroup>
                       </FormControl>
                     </div>
                   </div>
                 </div>
               </div>
+              {/* Step 06 */}
 
-              {/* Step 8 */}
+              {/* Step 07 */}
+
+              {/* Step 08 */}
+
+              {/* Step 09 */}
 
               <div
                 className={`${
-                  step === 7 ? "block" : "hidden"
+                  step === 5 ? "block" : "hidden"
                 } mt-4 h-[400px]  `}
               >
                 <div>
@@ -436,11 +342,11 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
                 </div>
               </div>
 
-              {/* Step 9 */}
+              {/* Step 10 */}
 
               <div
                 className={`${
-                  step === 8 ? "block" : "hidden"
+                  step === 6 ? "block" : "hidden"
                 } mt-4 h-[400px]  `}
               >
                 <div>
@@ -485,7 +391,7 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
                 <div
                   className={`bg-red-500 w-[100px] h-[40px] text-white font-[500]
              flex justify-center items-center hover:bg-red-600 cursor-pointer  ${
-               step === 8 ? "hidden" : ""
+               step === 6 ? "hidden" : ""
              }`}
                   onClick={() => {
                     setStep((currStep) => currStep + 1);
@@ -496,7 +402,7 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
                 <button
                   className={`bg-red-500 w-[100px] h-[40px] text-white font-[500]
              flex justify-center items-center hover:bg-red-600 cursor-pointer  ${
-               step === 8 ? "block" : "hidden"
+               step === 6 ? "block" : "hidden"
              }`}
                   type="submit"
                 >
