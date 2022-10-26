@@ -465,15 +465,15 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
             
           </div>
           
-      <Link className=' bg-white w-fit   '>
-        <div className="flex justify-end" >
+      <div className=' bg-white w-fit   '>
+      <Link to="/client/VenProf" className="flex justify-end" >
           <div className="absolute flex  mt-2 mr-2 rounded-full text-[20px] bg-white h-[30px] w-[30px]
            items-center justify-center hover:bg-slate-200 cursor-pointer">
             <MdFavoriteBorder /></div>
         
           <img src={VendorPic} className='h-[170px] w-full 2xl:w-[280px] xl:w-[260px] lg:w-[200px]'></img>
           
-        </div>
+        </Link>
         <div className='mt-[10px] ml-2'>
           <h1 className='text-[12px] text-slate-600'>{AvailableArea}</h1>
           <h1 className='text-[20px] mt-1'>Name</h1>
@@ -494,7 +494,7 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
            >
             REQUEST QUOTE</div>
 
-      </Link>
+      </div>
       
           
         
