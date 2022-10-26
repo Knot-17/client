@@ -527,7 +527,12 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
           <h1 className="text-[20px] mt-1">Name</h1>
           <div className="flex justify-between">
             <h1 className="text-[14px] nt-1 text-slate-700">price</h1>
-            <Link className="text-[#01bf71] font-medium italic flex hover:text-[#068550]">
+            <Link
+              className="text-[#01bf71] font-medium italic flex hover:text-[#068550]"
+              onClick={() => {
+                setShowPayGetway(true);
+              }}
+            >
               <GiNotebook className=" text-[20px]" />
               Book Now
             </Link>

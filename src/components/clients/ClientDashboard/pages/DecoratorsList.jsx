@@ -1,17 +1,21 @@
-import React from "react";
-import ClientNavbar from "../ClientDashNavbar";
+import React from 'react';
+import ClientNavbar from '../ClientDashNavbar'
 
-import Decorators from "..//VendorsPages/Decorators/Decorators";
+import Decorators from '..//VendorsPages/Decorators/Decorators';
+
 
 const DecoratorsList = () => {
-  return (
-    <div>
-      <ClientNavbar />
-      <Decorators />
-
-      {/* <Footer/> */}
-    </div>
-  );
-};
+    return (
+       <div>
+        
+        <ClientNavbar />
+        <Decorators/>
+        
+        
+        {/* <Footer/> */}
+           
+        </div>
+    );
+}
 
 export default DecoratorsList;
