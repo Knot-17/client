@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { MdFavoriteBorder } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { IoCloseOutline } from "react-icons/io5";
-<<<<<<< HEAD
 import { GiNotebook } from "react-icons/gi";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -12,12 +11,13 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 
 import FormControl from "@mui/material/FormControl";
-
+import PaymentGetway from "./../../PaymentGetway/PaymentGetway";
 const Cardss = ({ AvailableArea, VendorPic }) => {
   const [showReqQuote, setShowReqQuote] = useState(false);
   const [step, setStep] = useState(0);
   const [venue, setVenue] = useState(false);
   const [city, setCity] = useState(false);
+  const [showPayGetway, setShowPayGetway] = useState(false);
 
   const DisplaySteps = () => {
     switch (step) {
@@ -48,6 +48,20 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
 
   return (
     <div className="w-full">
+      <div
+        className={`fixed  z-[1] left-0 top-0 overflow-auto w-full h-full
+           bg-black/40  justify-center items-center ${
+             showPayGetway === true ? "flex" : "hidden"
+           }`}
+      >
+        <IoCloseOutline
+          className="absolute left-[1080px] top-[200px] text-[32px] text-slate-400 cursor-pointer mt-3 mr-3"
+          onClick={() => {
+            setShowPayGetway(false);
+          }}
+        />
+        <PaymentGetway />
+      </div>
       <div
         className={`fixed pt-[100px] z-[1] left-0 top-0 overflow-auto w-full h-full
            bg-black/40  justify-center items-center ${
@@ -109,99 +123,6 @@ const Cardss = ({ AvailableArea, VendorPic }) => {
                 <h1 className="text-[18px] font-[500]">
                   Get the most accurate pricing and availability info by sharing
                   some of your wedding details with this vendor.
-=======
-import { GiNotebook} from "react-icons/gi";
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-
-import FormControl from '@mui/material/FormControl';
-import PaymentGetway from './../../PaymentGetway/PaymentGetway'
-const Cardss = ( {AvailableArea,VendorPic}) => {
-
-   const [showReqQuote,setShowReqQuote] = useState(false);
-   const [step, setStep] = useState(0);
-   const [venue, setVenue] = useState(false);
-   const [city, setCity] = useState(false);
-   const[showPayGetway,setShowPayGetway] = useState(false);
-
- 
-
-   
-   const DisplaySteps = () =>{
-       switch(step) {
-           case 0:
-             return  "name";
-           case 1:
-             return "email";
-           case 2:
-             return "Wedding Date";
-           case 3:
-             return "Guest Count";
-           case 4:
-             return "Venue"; 
-           case 5:
-             return "Duration";
-           case 6:
-             return  "Additional Services";
-            case 7:
-             return  "Budget";
-            case 8:
-             return  "Video Chat";
-            case 9:
-             return  "Add a Note";
-            
-           default:            
-         }
-      }
-
-    return (
-        <div className='w-full'>
-          <div className={`fixed  z-[1] left-0 top-0 overflow-auto w-full h-full
-           bg-black/40  justify-center items-center ${showPayGetway===true? 'flex': 'hidden'}`}>
-            <IoCloseOutline className="absolute left-[1080px] top-[200px] text-[32px] text-slate-400 cursor-pointer mt-3 mr-3" 
-              onClick={()=>{
-                setShowPayGetway(false);
-                
-              
-              }}
-              />
-          <PaymentGetway/>
-          
-          </div>
-          <div className={`fixed pt-[100px] z-[1] left-0 top-0 overflow-auto w-full h-full
-           bg-black/40  justify-center items-center ${showReqQuote===true? 'flex': 'hidden'}`}>
-            <div className="flex justify-end" >
-              <IoCloseOutline className="absolute text-[32px] text-slate-400 cursor-pointer mt-3 mr-3" 
-              onClick={()=>{
-                setShowReqQuote(false);
-                setStep(0);
-              
-              }}
-              />
-            <div className='h-[600px] w-full md:w-[600px] bg-white rounded-[5px] flex justify-center'>
-            <form className='mt-[50px] w-[85%]'>
-            <h1 className=' text-[12px] font-[500]'>{step +1} of 10 - {DisplaySteps()}</h1>
-            <div className=' w-full  h-[8px] rounded '>
-            {/*progress bar */}
-            
-            <div  className={` h-[100%] bg-green-700 rounded
-            ${step === 0 ? "w-[10%]" : step === 1 ? "w-[20%]" : step === 2 ? "w-[30%]" : step === 3 ? "w-[40%]" :
-             step === 4 ? "w-[50%]" : step === 5 ? "w-[60%]" : step === 6 ? "w-[70%]" :step === 7 ? "w-[80%]" :step === 8 ? "w-[90%]" :step === 9 ? "w-[100%]" : ""}
-            } `}>
-            </div>
-          </div>
-
-          {/* Step 01 */}
-
-         <div className={`${step===0 ? "block" : "hidden"} mt-4 h-[400px]  `} >
-            <h1 className='text-[18px] font-[500]'>
-                Get the most accurate pricing and availability info by sharing some of your wedding 
-                details with this vendor.
->>>>>>> c1bef72946436468c309ff2b02c4e8727d0e0dd1
                 </h1>
 
                 <div className="mt-[50px]">
@@ -653,20 +574,16 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
           <h1 className="text-[12px] text-slate-600">{AvailableArea}</h1>
           <h1 className="text-[20px] mt-1">Name</h1>
           <div className="flex justify-between">
-<<<<<<< HEAD
             <h1 className="text-[14px] nt-1 text-slate-700">price</h1>
-            <Link className="text-[#01bf71] font-medium italic flex hover:text-[#068550]">
+            <Link
+              className="text-[#01bf71] font-medium italic flex hover:text-[#068550]"
+              onClick={() => {
+                setShowPayGetway(true);
+              }}
+            >
               <GiNotebook className=" text-[20px]" />
               Book Now
             </Link>
-=======
-          <h1 className='text-[14px] nt-1 text-slate-700'>price</h1>
-          <Link className="text-[#01bf71] font-medium italic flex hover:text-[#068550]"
-          onClick={()=>{
-            setShowPayGetway(true);
-           }}
-          ><GiNotebook className=" text-[20px]"/>Book Now</Link>
->>>>>>> c1bef72946436468c309ff2b02c4e8727d0e0dd1
           </div>
         </div>
         <div
