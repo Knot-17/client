@@ -7,22 +7,60 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
+import axios from "axios";
+
+import { RiUserLocationFill } from "react-icons/ri";
+import { FaLocationArrow } from "react-icons/fa";
+import { SiWorkplace } from "react-icons/si";
+import { BsCash } from "react-icons/bs";
+import { HiUserGroup } from "react-icons/hi";
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 
 import FormControl from '@mui/material/FormControl';
 import PaymentGetway from './../../PaymentGetway/PaymentGetway'
 
-const Cardss = ( {AvailableArea,VendorPic}) => {
+import { useForm } from "react-hook-form";
+
+const Cardss = ({
+  AvailableArea,
+  VendorPic,
+  Price,
+  Name,
+  Maxguest,
+  DealerID,
+}) => {
 
    const [showReqQuote,setShowReqQuote] = useState(false);
    const [step, setStep] = useState(0);
    const [venue, setVenue] = useState(false);
    const [city, setCity] = useState(false);
    const[showPayGetway,setShowPayGetway] = useState(false);
-
+   const [value, setValue] = useState({});
  
+   const { register, handleSubmit } = useForm();
 
+   const handleChange = (e) => {
+    const { name, v } = e.target;
+    console.log({ ...value, [name]: v });
+    setValue({ ...value, [name]: v });
+  };
+
+  const onSubmit = (data) => {
+    console.log(data);
+    const id = localStorage.getItem("id");
+    setValue({ ...data, dealerID: DealerID, clientID: id });
+    const response = axios
+      .post("http://localhost:5000/api/v1/addQuote", {
+        ...data,
+        dealerID: DealerID,
+        clientID: id,
+      })
+      .catch((err) => {
+        if (err && err.response);
+        console.log(err);
+      });
+  };
    
    const DisplaySteps = () =>{
        switch(step) {
@@ -71,7 +109,9 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
               }}
               />
             <div className='h-[600px] w-full md:w-[600px] bg-white rounded-[5px] flex justify-center'>
-            <form className='mt-[50px] w-[85%]'>
+            <form className='mt-[50px] w-[85%]'
+            onSubmit={handleSubmit(onSubmit)}
+            >
             <h1 className=' text-[12px] font-[500]'>{step +1} of 7 - {DisplaySteps()}</h1>
             <div className=' w-full  h-[8px] rounded '>
             {/*progress bar */}
@@ -95,12 +135,25 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
                 <h1 className='text-[20px] font-[600]'>What's your name?</h1>
                 <div className='mt-[50px] flex'>
                 <div className='border-[1px] border-slate-300 w-[230px] flex justify-center  '>
-                <input type="text" className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none  "
-                 placeholder="First Name"/>
+                <input
+                 type="text" 
+                 className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none  "
+                 placeholder="First Name"
+                 name="firstname"
+                        {...register("firstname", {
+                          required: true,
+                        })}
+                        />
                  </div>
                  <div className='border-[1px] border-slate-300 w-[230px] flex justify-center ml-2 '>
-               <input type="text" className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none"
-                placeholder="Last Name"/> 
+               <input type="text" 
+               className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none"
+                placeholder="Last Name"
+                name="lastname"
+                        {...register("lastname", {
+                          required: true,
+                        })}
+                /> 
                  </div>
                  </div>
   
@@ -117,8 +170,14 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
                 <h1 className='text-[20px] font-[600]'>What's your email?</h1>
                 <div className='mt-[50px] flex'>
                 <div className='border-[1px] border-slate-300 w-full flex justify-center  '>
-                <input type="text" className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none w-[80%]"
-                 placeholder="Your Email"/>
+                <input type="text"
+                 className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none w-[80%]"
+                 placeholder="Your Email"
+                 name="email"
+                        {...register("email", {
+                          required: true,
+                        })}
+                 />
                  </div>
                  
                  </div>
@@ -133,11 +192,19 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
             
             
             <div className="pt-[50px]" >
-                <h1 className='text-[20px] font-[600]'>What's your wedding date?</h1>
+                <h1 className='text-[20px] font-[600]'>
+                  What's your wedding date?
+                  </h1>
                 <div className='mt-[50px] '>
                 <div className='border-[1px] border-slate-300 w-full flex justify-center  '>
-                <input type="date" className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none w-[80%]"
-                 placeholder="Your Email"/>
+                <input type="date" 
+                className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none w-[80%]"
+                 placeholder="Your Email"
+                 name="weddingdate"
+                        {...register("weddingdate", {
+                          required: true,
+                        })}
+                 />
                  </div>
                  <div className='text-[20px]'>
                  
@@ -159,10 +226,18 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
             
             
             <div className="pt-[50px]" >
-                <h1 className='text-[20px] font-[600]'>How many guests do you plan to have?</h1>
+                <h1 className='text-[20px] font-[600]'>
+                  How many guests do you plan to have?
+                  </h1>
                 <div className='mt-[50px] '>
                 <div className='border-[1px] border-slate-300 w-full h-[50px]  flex justify-center  '>
-                <select className=' outline-none w-full '>
+                <select 
+                name="guestcount"
+                {...register("guestcount", {
+                  required: true,
+                })}
+                className=' outline-none w-full '
+                >
     <option value="0" >Number of guests</option>
     <option value="0-50" className='h-[400px]'>0-50</option>
     <option value="51-100">51-100</option>
@@ -188,7 +263,9 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
             
             
             <div className="pt-[50px]" >
-                <h1 className='text-[20px] font-[600]'>Do you have a venue picked out?</h1>
+                <h1 className='text-[20px] font-[600]'>
+                  Do you have a venue picked out?
+                  </h1>
                 <div className='mt-[20px] flex'>
                 <div className=' w-full flex  '>
                 <FormControl className=' w-full'>
@@ -205,8 +282,11 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
               }}/>
               <div className={`${venue===true? 'block': 'hidden'}`}>
     <div className={`border-[1px] border-slate-300 w-full flex justify-center `}>
-                <input type="text" className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none w-[80%]"
-                 placeholder="Your Reception Venue"/>
+                <input type="text"
+                 className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none w-[80%]"
+                 placeholder="Your Reception Venue"
+                 {...register("weddingvenue")}
+                 />
                  </div>
                  <div className='text-[20px]'>
                  
@@ -225,8 +305,11 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
     
     />
     <div className={`border-[1px] border-slate-300 w-full flex justify-center ${city===true? 'block': 'hidden'} `}>
-                <input type="text" className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none w-[80%]"
-                 placeholder="Your Wedding City"/>
+                <input type="text"
+                 className="  placeholder:text-center placeholder:text-[14px] h-[50px] outline-none w-[80%]"
+                 placeholder="Your Wedding City"
+                 {...register("weddingcity")}
+                 />
                  </div>
     
   </RadioGroup>
@@ -259,7 +342,9 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
             
             <div >
 
-            <h1 className='text-[20px] font-[600]'>Would you like to meet this vendor over video chat?</h1>
+            <h1 className='text-[20px] font-[600]'>
+              Would you like to meet this vendor over video chat?
+              </h1>
                 
                 <div className='mt-[50px] '>
                 
@@ -270,7 +355,10 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
   <RadioGroup
     aria-labelledby="demo-radio-buttons-group-label"
     className='  w-full'
-    name="radio-buttons-group"
+    name="videochat"
+      {...register("videochat", {
+        required: true,
+      })}
   >
     <FormControlLabel value="Yes" control={<Radio />} label="Yes please!"/>          
     <FormControlLabel value="Maybe" control={<Radio />} label="Maybe later"/>
@@ -306,8 +394,16 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
                 
                  <div className='h-[150px] w-full  border-2 border-slate-400 text-[14px] flex justify-center items-center '>
                  
-                 <textarea className='w-[95%] h-[140px]  resize-none outline-none' placeholder="Hello! My partner and I are getting married and we're intersted in learning more about pricing and services."></textarea>
-
+                 <textarea 
+                 className='w-[95%] h-[140px]  resize-none outline-none' 
+                 placeholder="Hello! My partner and I are getting married and we're intersted in learning more about pricing and services."
+                 name="weddingdescription"
+                        {...register("weddingdescription", {
+                          required: true,
+                        })}
+                  >
+                 </textarea>
+                 
                  </div>
 
                  <p className='text-[12px] text-slate-700 mt-[20px]'>By using this service, you agree that your email and other information may be shared with the vendor.</p>
@@ -340,8 +436,11 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
                 Next
                 </div>
                 <button className={`bg-red-500 w-[100px] h-[40px] text-white font-[500]
-             flex justify-center items-center hover:bg-red-600 cursor-pointer  ${step===6 ? "block" : "hidden"}`}
-             type="submit">
+             flex justify-center items-center hover:bg-red-600 cursor-pointer
+               ${step===6 ? "block" : "hidden"}`}
+
+               onClick={handleSubmit}
+             >
                     Submit
                 </button>
          </div>
@@ -362,10 +461,31 @@ const Cardss = ( {AvailableArea,VendorPic}) => {
           
         </Link>
         <div className='mt-[10px] ml-2'>
-          <h1 className='text-[12px] text-slate-600'>{AvailableArea}</h1>
-          <h1 className='text-[20px] mt-1'>Name</h1>
+        <div className="flex flex-row items-center gap-2 mb-3">
+            <div className="text-[18px] text-green-600">
+              <FaLocationArrow />
+            </div>
+            <h1 className="text-[15px] text-slate-600 font-sans font-semibold ">
+              {AvailableArea}
+            </h1>
+          </div>
+          <div className="flex flex-row items-center gap-2 mb-3">
+            <div className="text-[18px] text-green-600">
+              <SiWorkplace />
+            </div>
+            <h1 className="text-[15px] text-slate-600  font-sans font-semibold ">
+              {Name}
+            </h1>
+          </div>
           <div className="flex justify-between">
-          <h1 className='text-[14px] nt-1 text-slate-700'>price</h1>
+          <div className="flex flex-row items-center gap-2 mb-3">
+              <div className="text-[18px] text-green-600">
+                <BsCash />
+              </div>
+              <h1 className="text-[15px] nt-1 text-slate-700  font-sans font-semibold">
+                {Price}
+              </h1>
+            </div>
           <Link className="text-[#01bf71] font-medium italic flex hover:text-[#068550]"
           onClick={()=>{
             setShowPayGetway(true);
