@@ -6,8 +6,9 @@ import { GiNotebook } from "react-icons/gi";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-
+import { useHistory } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 import { RiUserLocationFill } from "react-icons/ri";
 import { FaLocationArrow } from "react-icons/fa";
@@ -37,7 +38,7 @@ const Cardss = ({
   const [city, setCity] = useState(false);
   const [showPayGetway, setShowPayGetway] = useState(false);
   const [value, setValue] = useState({});
-
+  const history = useHistory();
   const { register, handleSubmit } = useForm();
 
   const handleChange = (e) => {
@@ -55,6 +56,16 @@ const Cardss = ({
         ...data,
         dealerID: DealerID,
         clientID: id,
+      })
+      .then((res) => {
+        console.log(res);
+        Swal.fire({
+          title: "Success!",
+          text: "Your quote has been sent!",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+        history.push("/clientdash");
       })
       .catch((err) => {
         if (err && err.response);

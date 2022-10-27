@@ -159,7 +159,8 @@ const SignInPage = () => {
               </SignInSubmitButton>
               <MutedLink>
                 {" "}
-                Don't have an account ? <ActiveLink>SignUp</ActiveLink>{" "}
+                Don't have an account ?{" "}
+                <ActiveLink to="./signupas">SignUp</ActiveLink>{" "}
               </MutedLink>
             </SignInFormContainer>
           </FormContainer>
