@@ -61,12 +61,14 @@ const PaymentGetway = ({ dealersID, clientsID, Price }) => {
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                   name="dealersID"
                   hidden
+                  value={dealersID}
                   {...register("dealersID", { required: true })}
                 />
                 <input
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                   hidden
                   name="clientsID"
+                  value={clientsID}
                   {...register("clientsID", { required: true })}
                 />
                 <div className="font-bold h-6 mt-3 text-gray-500 text-xs leading-8 uppercase">
