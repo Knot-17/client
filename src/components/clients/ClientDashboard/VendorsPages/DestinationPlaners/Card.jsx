@@ -97,7 +97,11 @@ const Cardss = ({
             setShowPayGetway(false);
           }}
         />
-        <PaymentGetway />
+        <PaymentGetway
+          dealersID={DealerID}
+          clientsID={localStorage.getItem("id")}
+          Price={Price}
+        />
       </div>
       <div
         className={`fixed pt-[100px] z-[1] left-0 top-0 overflow-auto w-full h-full
