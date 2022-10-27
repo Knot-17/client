@@ -7,7 +7,7 @@ import DacoratorsList from "../pages/DecoratorsList";
 import DestinationPlannersList from "../pages/DestinationPlannersList";
 import MusicBandsList from "../pages/MusicBandsList";
 import CheckListPage from "../pages/CheckListPage";
-
+import VenProf from "../pages/VenProf";
 import VenderReview from "../VerdersReviews/VenderReviews";
 
 export default [
@@ -22,4 +22,5 @@ export default [
   { path: "/client/MusicBandsList", component: MusicBandsList },
   { path: "/client/CheckList", component: CheckListPage },
   { path: "/client/VenderReview", component: VenderReview },
+  {path:"/client/VenProf",component:VenProf }
 ];
