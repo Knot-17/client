@@ -476,7 +476,7 @@ const Cardss = ({
 
       {/* <Link className=" bg-white w-fit "> */}
       <div className="bg-white w-fit border-green-700">
-        <div className="flex justify-end">
+        <Link to="/client/VenProf" className="flex justify-end">
           <div
             className="absolute flex  mt-2 mr-2 rounded-full text-[20px] bg-white h-[30px] w-[30px]
            items-center justify-center hover:bg-slate-200 cursor-pointer"
@@ -488,7 +488,7 @@ const Cardss = ({
             src={VendorPic}
             className="h-[170px] w-full 2xl:w-[280px] xl:w-[260px] lg:w-[200px]"
           ></img>
-        </div>
+        </Link>
         <div className="mt-[10px] ml-2">
           <div className="flex flex-row items-center gap-2 mb-3">
             <div className="text-[18px] text-green-600">
